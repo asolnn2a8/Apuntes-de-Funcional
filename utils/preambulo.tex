@@ -1,0 +1,100 @@
+%!TEX root = ../main.tex
+
+\pdfoutput=1
+
+%%% Packages %%%
+\usepackage{amsmath,amsthm,amsfonts,amssymb}
+\usepackage[spanish,es-nodecimaldot,es-lcroman]{babel}
+\usepackage[extension=pdf]{hyperref}
+\usepackage{enumitem,comment}
+\usepackage[T1]{fontenc}
+% \usepackage{times}
+\usepackage{lmodern}
+\usepackage{mathtools}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{tikzmark,calc,arrows,shapes,decorations.pathreplacing,cd}
+\usepackage{rotating}
+% \usepackage{psfrag}
+\usepackage{mathrsfs}
+\usepackage{cases}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{bm}
+\usepackage[multiple]{footmisc}
+\usepackage{microtype}
+\usepackage[totalheight=9.6in,totalwidth=6.15in,centering]{geometry}
+% ============= Notas al margen ================
+\usepackage{marginnote} 
+\renewcommand*{\marginfont}{\color{red}\sffamily}
+% ============= Notas al margen ================
+\usepackage{graphics,graphicx}
+\graphicspath{ {img/} } % path de las imagenes
+\usepackage{tocvsec2}
+\usepackage{stmaryrd}
+\usepackage[color,notref,notcite]{showkeys}
+\usepackage{xr}
+\usepackage{upgreek}
+\usepackage[cmtip,all]{xy}
+% \usepackage{todonotes}
+\usepackage{pifont}
+\usepackage{tikz}
+\usetikzlibrary {positioning}
+% =============Simbolos=================
+\usepackage[draft]{listofsymbols} % Comentar al final
+% =============Simbolos=================
+\usepackage{fancyhdr}
+\usepackage{lipsum}
+\usepackage[document]{ragged2e}
+
+
+\setlist{itemsep=1pt,topsep=2pt}
+
+
+\usepackage[style=alphabetic,sorting=nyt,natbib=true,maxnames=99,isbn=false,doi=false,url=false,firstinits=true,hyperref=auto,arxiv=abs,backend=bibtex]{biblatex}
+%%% Biblatex config %%%
+\addbibresource{biblio.bib}
+\AtEveryBibitem{%
+  \clearlist{language}}
+\DeclareFieldFormat[article,inbook,incollection,inproceedings,patent,thesis,unpublished]{title}{#1\isdot}
+\renewbibmacro{in:}{%
+  \ifentrytype{article}{}{%
+    \printtext{\bibstring{in}\intitlepunct}}} \setlength{\biblabelsep}{6pt}
+\defbibheading{apa}[\refname]{\section*{#1}}
+\DeclareFieldFormat{sentencecase}{\MakeSentenceCase{#1}} \renewbibmacro*{title}{%
+  \ifthenelse{\iffieldundef{title}\AND\iffieldundef{subtitle}}{}
+  {\ifthenelse{\ifentrytype{article}\OR\ifentrytype{inbook}%
+      \OR\ifentrytype{incollection}\OR\ifentrytype{inproceedings}%
+      \OR\ifentrytype{inreference}} {\printtext[title]{%
+        \printfield[sentencecase]{title}%
+        \setunit{\subtitlepunct}%
+        \printfield[sentencecase]{subtitle}}}%
+    {\printtext[title]{%
+        \printfield[titlecase]{title}%
+        \setunit{\subtitlepunct}%
+        \printfield[titlecase]{subtitle}}}%
+    \newunit}%
+  \printfield{titleaddon}}
+
+%%% Hyperref config %%%
+\definecolor{darkblue}{rgb}{0.13,0.13,0.39}%{0.03,0.03,0.265}
+\hypersetup{colorlinks=true,urlcolor=darkblue,citecolor=darkblue,linkcolor=darkblue,%
+  pdftitle=Apuntes - Procesos de Markov,pdfauthor={Daniel Remenik}}
+
+%%% Other settings %%%
+\mathtoolsset{showmanualtags,showonlyrefs}
+\renewcommand{\labelitemi}{{\small\textbullet}}
+\def\dash---{\kern.16667em---\penalty\exhyphenpenalty\hskip.16667em\relax}
+\renewcommand{\theequation}{\arabic{equation}}
+\addtolength{\parskip}{3pt}
+\let\oldmarginpar\marginpar
+\renewcommand\marginpar[1]{\-\oldmarginpar[\raggedleft\footnotesize #1]%
+  {\raggedright{\small\textsf{#1}}}}
+\allowdisplaybreaks[2]
+\numberwithin{equation}{section}
+
+% Enviorments
+\input{utils/enviorments}
+
+% Comandos
+\input{utils/cmd}

@@ -1,0 +1,33 @@
+\documentclass[letterpaper,reqno,10pt,oneside,final]{article}
+
+% usar notas al margen (1 para usar notas al margen, 0 si no)
+\def\notasalmargen{1}
+
+% ===== NO TOCAR =====
+% Preámbulo
+\input{utils/preambulo}
+% Portada
+\input{utils/portada}
+% ===== NO TOCAR =====
+
+\begin{document} % Empieza el documento
+% ==========Hacer título ==============
+\thispagestyle{empty}		% Remove page numbering on this page
+\mbox{}\vskip30pt
+\printtitle					% Print the title data as defined above
+  	\vfill
+\printauthor				% Print the author data as defined above
+\newpage
+% ==========Hacer título ==============
+% =============Notas al margen==============   
+\NAM{
+\newgeometry{top=1.5cm, bottom=1.5cm, outer=5cm, inner=2cm, heightrounded, marginparwidth=4cm, marginparsep=-0.5cm}
+\savegeometry{notas-al-margen}
+}
+% =============Notas al margen==============   
+
+\include{capitulos/clase1}
+
+\newpage
+
+\end{document}
