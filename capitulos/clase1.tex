@@ -1,9 +1,77 @@
 %!TEX root = ../main.tex
 
 %%%%% NÚMERO DE LA CÁTEDRA Y FECHA
-\newcommand{\catnum}{1} %numero de catedra
-\newcommand{\fecha}{20 de marzo de 2020}
+\renewcommand{\catnum}{1} %numero de catedra
+\renewcommand{\fecha}{09 de marzo de 2020}
 %%%%%%%%%%%%%%%%%%
 %Encabezado
 \input{utils/encabezado}
 %Fin encabezado
+
+{\Large \bf Ejemplos de Espacios de Banach:}\MarginNote{Ejemplos de Esp. de Banach}
+
+\begin{itemize}
+    \item $\rr$ dotado con $\norm{\bullet}$.
+    \item $\rr[n]$ dotado con $\norm[2]{\bullet}$, donde $\norm[2]{x} = {(\sum_{i=1}^{n} {x_i}^{2})}^{1/2}$.
+    \item $V$, $A$ sev de $V$, entonces $A$ es evn con norma restringida al espacio $A$.
+    \item $\Omega \subset \rr[N]$ abierto (puede ser acotada)
+\end{itemize}
+Este último puede ser un dominio de calor, de onda, etc. (en vista a la matemática aplicada).
+ 
+\begin{defn}[Espacio de Funciones Continuas]\MarginNote{Espacio de Funciones Continuas}
+$$\Cf[0]{\Omega} \defeq \{ u:\Omega \to \kk | u \text{ es continua en } \Omega \}$$
+(Donde $\kk = \rr$ o $\kk = \cc$). Es un ev y es seminormado, con la seminorma:
+$$\forall K \subset \Omega, \ K \text{ compacto: } p_{k}(u) \defeq \sup_{x \in K} \abs{u(x)}$$
+\end{defn}
+
+\begin{defn}[Espacio de Funciones Continuamente Derivables]\MarginNote{Esp. de Funciones Cont.\mte Derivables}
+$$\forall m \geq 1, \quad \Cf[m]{\Omega} \defeq 
+\left\{
+u:\Omega \to \rr |D^{\alpha}(u) = \frac{\p^{\abs{\alpha}} u}{\p {x_1}^{\alpha_1} \cdots \p {x_N}^{\alpha_N}}, \ \forall \alpha, \abs{\alpha} \leq m
+\right\}$$
+
+Donde $\alpha = (\alpha_1, \ \ldots, \ \alpha_N)$ es un multi-índice, tal que $\alpha_i \in \nn_{0}$ y $\abs{\alpha} = \sum_{i=1}^{N} \alpha_i$.
+\end{defn}
+
+\begin{defn}\MarginNote{$\Cf[\infty]{\Omega}$}
+$$\Cf[\infty]{\Omega} \defeq \bigcap_{m \geq 1} \Cf[m]{\Omega} $$
+\end{defn}
+
+\begin{defn}\MarginNote{$\Cf[0]{\bOmega}$}
+$$\Cf[0]{\bOmega} \defeq \{
+u \in \Cf[0]{\Omega} | u \text{ es acotado en $\Omega$ y $u$ es unif\mte continua en } \Omega
+\}$$
+\end{defn}
+Destacar que la barra no corresponde a la adherencia. Sin embargo, si $\Omega$ es acotado, los dos conjuntos coinciden
+
+Ejemplo de una función acotada y no extensible al borde: $\sin{(\inv{x})}$
+
+Notemos que con la norma
+$$\norm[\infty]{u} \defeq \sup_{\Omega} \abs{u(x)} \text{, $\quad \Cf[0]{\bOmega}$ es Banach.}$$
+
+\begin{defn}\MarginNote{$\Cf[m]{\bOmega}$}
+$$\Cf[m]{\bOmega} \defeq \{ u \in \Cf[m]{\Omega} | D^{\alpha} u \in \Cf[0]{\bOmega} \ \forall \alpha_i, \ \abs{\alpha} \leq m \}$$
+\end{defn}
+
+Notemos que con la norma
+$${\parallel u \parallel}_{\Cf[m]{\bOmega}} \defeq \norm[m, \Omega]{u} = \sum_{\substack{\alpha_i \\ \abs{\alpha} \leq m}} \sup_{\Omega} \abs{D^{\alpha} u(x)} \text{, $\quad \Cf[m]{\bOmega}$ es Banach.}$$
+
+\begin{defn}\MarginNote{$\ell_{p}$ y $\ell_{\infty}$}
+$$\ell_{p} \defeq \left\{ 
+(x_n) | x_n \in \kk \text{ y } {\left( \sum\nolimits_{n \geq 1} \abs{x_{n}}^{p} \right)}^{1/p} 
+\right\}$$
+para $1 \leq p < \infty$. $\ell_{\infty}$ se define como el ev. de todas las sucesiones acotadas, i.e. tales que $\norm[\infty]{(x_n)} = \sup_{n \in \nn} \abs{x_n} < \infty$
+\end{defn}
+
+\NAM{\newpage}
+
+\begin{note}
+$\Omega = \rr[n], \Cf[m]{\overline{\rr[n]}}  \subsetneq \Cf[m]{\rr[n]}$ \\
+$\ell$ es acotado ($\implies \adh{\Omega}$ es compacto) \\
+
+$\Cf[0]{\adh{\Omega}} = \Cf[0]{\bOmega}$. (Cuando $\Omega$ es acotado)
+\end{note}
+
+\begin{exer}
+$$\Cf[0]{\bOmega} = \{ u|_{\Omega} \ | \ u \in \Cf[0]{\rr[N]} \}$$
+\end{exer}
