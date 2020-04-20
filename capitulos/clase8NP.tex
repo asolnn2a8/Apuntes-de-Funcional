@@ -1,0 +1,201 @@
+%!TEX root = ../main.tex
+
+%%%%% NÚMERO DE LA CÁTEDRA Y FECHA
+\renewcommand{\catnum}{10 (8 No Presencial)}% 6NP %numero de catedra
+\renewcommand{\fecha}{20 de abril de 2020}
+%%%%%%%%%%%%%%%%%%
+%Encabezado
+\input{utils/encabezado}
+%Fin encabezado
+
+$T: D(T) \subseteq E \to F$, donde $\adh D(T) = E$ (se puede obviar pues es spg)
+
+Se quiere definir $T\adj$, el operador adjunto
+
+Que satisfaga la siguiente identidad
+
+\begin{equation}\label{eqn:t-adj}
+\prodint[F,F']{Tx}{y} = \prodint[E,E']{x}{T\adj y} \quad \forall x \in D(T) \ \forall y \in D(T\adj) 
+\end{equation}
+
+% $$ 
+% \prodint[F,F']{Tx}{y} = \prodint[E,E']{x}{T\adj y} \quad \forall x \in D(T) \ \forall y \in D(T\adj) (*)
+% $$
+
+$$
+\eqref{eqn:t-adj} \implies
+\left\{ \begin{array}{l}
+     T\adj: D(T\adj) \subseteq F' \to E' \\
+D(T\adj) = \{ y \in F' |  x \mapsto \prodint[]{Tx}{y} ,\ x \in D(T) \text{ es lineal ie, $\exists c \geq o$; continua, $\abs{ \prodint[]{Tx}{y} } \leq x \norm[]{x} \ \forall x \in D(T) $ } \} \\
+T\adj y = (x \in D(T) \to \prodint[]{Tx}{y})
+\end{array}
+% \left\{
+% T\adj: D(T\adj) \subseteq F' \to E' \atop
+% D(T\adj) = \{ y \in F' |  x \mapsto \prodint[]{Tx}{y} ,\ x \in D(T) \text{ es lineal ie, $\exists c \geq o$; continua, $\abs{ \prodint[]{Tx}{y} } \leq x \norm[]{x} \ \forall x \in D(T) $ } \} \atop
+% T\adj y = (x \in D(T) \to \prodint[]{Tx}{y})
+% \right.
+$$
+
+\begin{prop}:\\
+(1) $T\adj$ es cerrado.
+
+(2) $(\gr T)\ort = J( \gr T\adj )$ 
+$$
+\begin{array}{llll}
+     J: &F' \times E' &\to &E' \times F' \\
+     &(y,\ f) &\mapsto &(-f,\ y)
+\end{array}
+$$
+\end{prop}
+
+\begin{prop}
+$T : D(T) \subseteq E \to F$ cerrado y $\adh D(T) = E$ entonces
+
+(i) $
+\ker T = (\im T\adj) \ort
+$
+
+(ii) $
+\ker T\adj = (\im T) \ort
+$
+
+(iii) $
+(\ker T)\ort \supseteq \adh (\im T\adj) 
+$
+
+(iv) $
+(\ker T\adj)\ort = \adh (\im T)
+$
+\end{prop}
+
+\begin{proof}:\\
+$G \defeq \gr T$, $L \defeq E \times \{ 0 \}$. $G$, $L$ sev de $E \times F$, ¡cerrado!
+\end{proof}
+
+\begin{lem}\label{lem:ker-img}
+$T: D(T) \subseteq E \to F$ no-acotado
+
+y sean $G = \gr T \wedge L = E \times \{ 0 \}$. Entonces
+
+(i) $
+\ker T \times \{ 0 \} = G \cap L
+$
+
+(ii) $
+E \times \im T = G + L
+$
+
+(iii) $
+\{ 0 \} \times \ker T\adj = G\ort \cap L\ort
+$
+
+(iv) $
+\im T\adj \times F' = G\ort + L\ort
+$
+\end{lem}
+
+\begin{proof}
+\textbf{Queda como ejercicio para el lector c:}
+\end{proof}
+
+\begin{proof}(De la proposición) \\
+
+(i) pdq $$\ker T = (\im T\adj)\ort$$
+
+Gracias a (iv) en el lema \ref{lem:ker-img}, y tomando $\perp$ $$
+(\im T\adj \times F')\ort = (G\ort + L\ort)\ort = G \cap L
+$$ y entonces $$
+(\im T\adj)\ort \times \{ 0 \} = G cap L = \ker T \times \{ 0 \}
+$$ Luego, $(\im T\adj)\ort = \ker T$.
+
+(ii) pdq $$
+\ker T\adj = (\im T )\ort
+$$
+
+Gracias a (ii) en el lema \ref{lem:ker-img} y tomando $\perp$ nos queda que: $$
+(\im T \times F)\ort = (G + L)\ort \overset{\text{ver guia 2}}{=} G\ort \cap L\ort
+$$ y entonces $$
+ \{ 0 \} \times (\im T )\ort = G\ort \cap L\ort \overset{\text{lema \ref{lem:ker-img}}}{=} \{ 0 \} \times \ker T \adj
+$$
+
+(iii) pdq $$
+(\ker T)\ort \supseteq \adh( \im T\adj )
+$$
+
+Tomando $\perp$ en (i), $$
+(\ker T)\ort = {(\im T\adj)\ort}\ort \supseteq \adh(\im T \adj)
+$$
+
+(iv) Basta toma $\perp$ a (ii)
+\end{proof}
+
+\begin{note}
+Hay ejemplos explícitos en que la inclusión en (iii) es estricta.
+
+Resolver el ejercicio \#2, lista \#3:
+
+$$
+E = \ell_1 (\implies E' = \ell_{\infty})
+$$
+$$
+\begin{array}{rcl}
+     T : \ell_1 &\to &\ell_{\infty} \\
+    %  tq 
+     u=(u_n)_n &\mapsto &Tu = \left( \frac{u_n}{n} \right)_n
+\end{array}
+% T: \ell_1 \to \ell_{\infty} \ tq \ u=(u_n)_n \mapsto Tu = \left( \frac{u_n}{n} \right)_n
+$$
+
+Calcular $\ker T$, $(\ker T )\ort $, $T\adj$, $\ker T\adj$, $(\ker T\adj)\ort$, $\im T$, $\im T\adj$, etc.
+\end{note}
+
+\begin{exer}[Caracterización de operadores a imagen cerrada]
+% \underline{\textbf{Tarea \# 1}} (Caracterización de operadores a imagen cerrada)
+
+\textbf{Nuestro sueño:}
+\begin{center}
+$ \ulcorner \quad \quad
+T u = f
+\quad \quad \lrcorner $    
+\end{center}
+
+Sea $T: D(T) \subseteq E \to F$, $\adh D(T) = E$, $T$ cerrado
+
+\textbf{TFAE:}
+
+(i) $\im T$ es cerrada en $F$
+
+(ii) $\im T\adj$ es cerrada en $E'$
+
+(iii) $(\ker T)\ort = \im T\adj$
+
+(iv) $(\ker T\adj)\ort = \im T$
+
+\end{exer}
+
+\begin{thm}[Caracterización de operadores sobreyectivos]: \\
+
+Bajo las mismas hipótesis del ejercicio anterior
+
+TFAE
+
+(i) $T$ es sobreyectivo
+
+(ii) $\exists c \geq 0:\ \norm[F']{y} \leq c \norm[E']{T\adj y} \ \forall y \in D(T\adj) $
+
+(iii) $T\adj$ es inyectivo $( \ker T\adj = \{ 0 \} )$ $\wedge $ $\im T\adj$ es cerrada.
+\end{thm}
+
+\begin{note}
+Cómo se usa la equivalencia (i)$\iff$(ii) en la práctica. La idea es plantear la ecuación $$
+T\adj v = g \quad \text{(en $E'$)}
+$$
+
+En la práctica los operadores son autoadjuntos o simétricos, por lo tanto esta ecuación es prácticamente la misma que la original $(T u = f)$
+
+Entonces nos planteamos esta ecuación con $g$ cualquiera y se dice así mismo, siempre que $v$ tiene solución y trato de probar que $\norm[]{v} \leq c \norm[]{g}$ con $c$ indep. de la función $v$. 
+
+Entonces tratamos de estimar la solución en vez de encontrarla.
+
+Esto se llama la \textbf{Técnica de las estimaciones a priori}.
+\end{note}
