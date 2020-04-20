@@ -17,7 +17,13 @@
 % Ortogonal
 \newcommand{\ort}{^{\perp}}
 % Producto interno
-\newcommand{\prodint}[3][]{ <#2, \ #3>_{#1} }
+\newcommand{\prodint}[3][]{ {\langle #2, \ #3 \rangle}_{#1} }
+% El generado
+\newcommand{\gen}[2][N]{ < #2_1 ,\ \ldots ,\ #2_#1 > }
+% conj de indices
+\newcommand{\cind}[2][1]{ \{ #1 ,\ \ldots ,\ #2 \} }
+% adjunto
+\newcommand{\adj}{^{*}}
 % ============== Comandos personales ==============
 
 %%% Standard %%%
@@ -60,6 +66,7 @@
 \newcommand{\cl}{\mathcal{L}}
 \newcommand{\cp}{\mathcal{P}}
 \newcommand{\cm}{\mathcal{M}}
+\newcommand{\Cc}{\mathcal{C}}
 \newcommand{\fh}{\mathfrak{h}}
 \newcommand{\fg}{\mathfrak{g}}
 \newcommand{\ff}{\mathfrak{f}}
@@ -101,6 +108,7 @@
 \DeclareMathOperator{\adh}{\mathop{\uptext{adh}}}
 \DeclareMathOperator{\sgn}{\mathop{\uptext{sgn}}}
 \DeclareMathOperator{\gr}{\mathop{\uptext{Gr}}}
+\DeclareMathOperator{\codim}{\mathop{\uptext{codim}}}
 \RedeclareMathOperator{\det}{\mathop{\uptext{det}}}
 \RedeclareMathOperator{\ker}{\mathop{\uptext{ker}}}
 \RedeclareMathOperator{\exp}{\mathop{\uptext{exp}}}
