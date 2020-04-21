@@ -1,0 +1,162 @@
+%!TEX root = ../main.tex
+
+%%%%% NÚMERO DE LA CÁTEDRA Y FECHA
+\renewcommand{\catnum}{11 (9 No Presencial)}% 6NP %numero de catedra
+\renewcommand{\fecha}{21 de abril de 2020}
+%%%%%%%%%%%%%%%%%%
+%Encabezado
+\input{utils/encabezado}
+%Fin encabezado
+
+\begin{thm}[Caracterización operadores acotados]\label{thm:caract-op-acot}
+Sea $T: D(T) \subseteq E \to F$; $\adh D(T) = E$, $T$ cerrado
+
+Son equivalentes:
+\begin{enumerate}[(i)]
+    \item $D(T) = E$
+    \item $T$ es acotado
+    \item $D(T\adj) = F'$
+    \item $T\adj$ es acotado
+\end{enumerate}
+Y en estas condiciones, $\norm[L(E,\ F)]{T} = \norm[L(F',\ E')]{T\adj}$ % TODO: Cambiarle a la L bonita
+\end{thm}
+
+Defina $G = \gr T$ y $L = E \times \{ 0\}$
+
+Que son sev de $E$ cerrados
+
+\textbf{Recuerdo:} Ejercicio \#4 (Lista \#3)
+
+\begin{enumerate}[(i)]
+    \item $\ker T \times \{ 0\} = G \cap L$
+    \item $E \times \im T = G + L$
+    \item $\{ 0 \} \times \ker T\ort = G\ort \cap L\ort$
+    \item $\im T\adj \times F' = G\ort + L\ort$
+\end{enumerate}
+
+\begin{enumerate}
+    \item $\im T $ es cerrado  \\ 
+    $\iff $ $E\times \im T$ es cerrado en $E \times F$ \\
+    $\iff$ $G + L$ es cerrado en $E \times F$.
+    \item $\im T\adj$ es cerrada \\
+    $\iff$ $\im T\adj \times F'$ es cerrada en $E' \times F'$ \\
+    $\iff$ $G\ORT + L\ORT$ es cerrada en $E' \times F'$ 
+    \item $(\ker T )\ort = \im T\adj$ \\
+    $\iff$ $(\ker T)\ort \times F' = \img T\adj \times F'$ \\ 
+    $\iff$ $(G \cap L)\ort = G\ort + L\ort$
+    \item $(\ker T\adj)\ort = \im T$ \\
+    $\iff$ $E \times (\ker T \adj) \ort = E \times \im T$ \\
+    $\iff$ $(G\ort \cap L\ort) \ort = G + L$
+\end{enumerate}
+
+Con esto, el teorema \#1 es simplemente una reescritura del teorema en la pág 2, guía \#2.
+
+\begin{proof} Del Teorema \eqref{thm:caract-op-acot}:\\
+Usemos el Teorema \#1 para probar que $(i)\iff (iii)$ 
+
+Probemos primero que $(i) \implies (iii)$
+
+Sabemos que $(\ker T\adj)\ort \underset{\text{(iv) en Teo. 1}}{=}  \im T = F$\\ $ \implies \ker T\adj = \{ 0 \}$ gracias a $(i)$, luego $T\adj$ es inyectivo.
+
+Además $\im T\adj = (\ker T )\ort$ y entonces cerrada.
+
+$(iii) \underset{\text{Por Teo, 1}}{\implies}  \im T$ es cerrada, pero además, por Teo. 1 parte $(iv)$\\ $\im T = (\ker T\adj)\ort$ = \{ 0 \}\ort = F $.
+
+Demostremos que $(ii) \implies (iii)$
+
+Si $T \adj y = 0$, entonces como $\norm[]{y} \leq c \norm[]{T\adj y} = 0$, sigue que $y = 0$. Así $T \adj$ es inyectivo.
+
+Sea $(y_n)_n$ sucesión en $\im T\adj$ tal que $y_n \to y$ en $E'$
+
+pdq $y \in \im T\adj$
+
+Escribamos $y_n = T f_n$ con $f_n \in D(T\adj)$
+
+Gracias a $(ii)$, $\forall n,\ m$ $$
+\norm[]{f_n - f_m} \leq c \norm[]{y_n - y_m} \overset{n,\ m \to \infty}{\to} 0
+$$
+y entonces $(f_n)$ es de Cauchy en $F'$, y entonces $f_n \to f$ en $F'$. Con esto, $$
+\left.
+\begin{array}{r}
+     f_n \in D(T\adj), f_n \to f \text{ en $F'$}\\
+     y_n = T\adj f_n \to y  \text{ en $E'$}
+\end{array}\right \}
+\overset{\text{$T\adj$ es cerrado}}{\implies}  (f,\ y) \in \gr T\adj \text{, ie, } f \in D(T\adj),\ y = T\adj f
+$$
+
+Recapitulando:\\
+$(i) \iff (iii)$ en Teo.2 V\\
+$(ii) \implies (iii)$ en Teo.2 V
+
+pdq $(iii) \implies (ii)$ o $(i) \implies (ii)$ en Teo. 2
+
+Supongamos que $(i)$ en Teo. 2 es Verdadero.
+
+y usaremos el Teorema de B-S al cjto. $$
+G = \{ y \in D(T\adj) \subseteq F' |\ \norm[E']{T\adj y} \leq 1 \}
+$$
+
+Comencemos chequeando que es puntualmente acotado: Sea $f \in F$, $$
+\sup_{y\in G} \abs{ \prodint[]{y}{f} }
+\ \underset{\text{Pues $T$ es epiy}}{\overset{\text{para algún $x\in E$}}{=}}  \
+\sup_{y\in G}\abs{ \prodint[]{y}{Tx} } 
+= \sup_{y \in G} \abs{ \prodint[]{T\adj y}{x} }
+\leq \underbrace{\sup_{y \in G} \norm[]{T\adj}}_{\leq 1}  \norm[]{x}
+= \norm[]{x}
+< \infty
+$$
+
+Gracias a B-S, $G$ está unif\mte acotada, ie, $\exists M \geq 0$ tal que $$
+\norm[]{y} \leq M\quad \forall y \in G
+$$
+
+\textbf{Conclusión intermedia}
+
+\begin{equation}\label{eqn:concl-int}
+\left.
+\begin{array}{r}
+     y \in D(T\adj)\\
+     \norm[E']{T\adj y} \leq 1
+\end{array}\right \}
+\implies \norm[F']{y} \leq M
+\end{equation}
+
+Luego, $\forall y \in D(T\adj)$ $$
+\norm[]{y} \leq M \norm[]{T\adj y}
+$$
+
+En efecto, sea $z \in D(T\adj )$, cualquiera, y definamos $y = \frac{z}{\norm[]{T\adj z}}$. Luego, $$
+\norm[]{z} = \norm[]{T\adj z} \norm[]{y}
+$$
+
+pues $\norm[]{T\adj y} = 1$
+
+\end{proof}
+
+\begin{proof} \textbf{(Del Teorema 3)}\\
+Primero demostremos que $(i) \implies (ii)$ en Teo. 3
+
+Usando Graf. Cerrado, (que se puede usar pues el esp. $[D(T)=E,\ \norm[]{\bullet}]$ es Banach)
+
+Como $T$ es cerrado, es acotado o continuo
+
+Demostremos que $(ii)\implies (iii)$ en Teorema 3.
+
+pdq si $T$ es acot. cont. $\implies$ $D(T\adj) = F'$
+
+Sea $y \in F'$. Miremos la app. $$
+x\in E \mapsto \prodint[]{y}{Tx}
+$$ Ahora bien, $$
+\abs{ \prodint[]{y}{Tx} } 
+\leq \norm[]{y} \norm[]{Tx}
+\leq \underbrace{ \norm[]{y} \norm[]{T}}_{c} \norm[]{x} 
+= c \norm[]{x}
+$$ y entonces $y \in D(T\adj)$
+
+
+
+\end{proof}
+
+% $T: D(T) \subseteq E \to F$
+
+% $G = \gr T$ y $L = E \times \{ 0\}$
