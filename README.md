@@ -7,10 +7,13 @@ Repositorio para documentar las clases de funcional
 ## Auxiliares
 La carpeta de los auxiliares se puede encontrar [aqui](./pdfs/auxs)
 ### Auxiliares resueltos actuales
-* [Auxiliar 4]()
+* [Auxiliar 4](./pdfs/auxs/aux_4_resuelta.pdf)
 
 ## Clases que faltan
 * Desde la clase 1 hasta la clase 8.
+
+## Auxiliares que faltan
+* Desde el aux 1 hasta el 3
 
 ## Clases a remasterizar
 * Desde la clase 8 hasta la clase 11.
