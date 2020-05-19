@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.5.18)  19 MAY 2020 14:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.5.18)  19 MAY 2020 14:58
 entering extended mode
 **./main.tex
 (main.tex
@@ -20,13 +20,8 @@ File: size10.clo 2019/12/20 v1.4l Standard LaTeX file (size option)
 \abovecaptionskip=\skip47
 \belowcaptionskip=\skip48
 \bibindent=\dimen134
-)
-(C:\Users\asoln\AppData\Roaming\MiKTeX\2.9\tex/latex/import\import.sty
-Package: import 2020/04/01  v 6.2
-)
-(misPaquetes.sty
-Package: misPaquetes 
- ("C:\Program Files\MiKTeX 2.9\tex/latex/amsmath\amsmath.sty"
+) (utils/preambulo.tex ("C:\Program Files\MiKTeX 2.9\tex/latex/amsmath\amsmath.
+sty"
 Package: amsmath 2020/01/20 v2.17e AMS math features
 \@mathmargin=\skip49
 
@@ -1361,7 +1356,7 @@ Package biblatex Warning: 'firstinits' option is deprecated.
 (biblatex)                Please use 'giveninits' instead.
 
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 83.
+Package hyperref Info: Option `colorlinks' set `true' on input line 81.
  (utils/enviorments.tex
 \c@thm=\count444
 ) (utils/cmd.tex (utils/cmd/math.tex
@@ -1383,7 +1378,12 @@ Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
 
 \@quotelevel=\count445
 \@quotereset=\count446
-No file main.aux.
+(main.aux
+LaTeX Info: Redefining \. on input line 32.
+LaTeX Info: Redefining \% on input line 32.
+ (capitulos/clase04NP.aux) (capitulos/clase05NP.aux)
+(capitulos/clase06NP.aux) (capitulos/clase07NP.aux) (capitulos/clase08NP.aux)
+(capitulos/clase09NP.aux) (capitulos/clase10NP.aux) (capitulos/clase11NP.aux))
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
@@ -1404,6 +1404,7 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 15.
 LaTeX Font Info:    ... okay on input line 15.
 LaTeX Font Info:    Trying to load font information for T1+lmr on input line 15
 .
+
 ("C:\Program Files\MiKTeX 2.9\tex/latex/lm\t1lmr.fd"
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
@@ -1427,10 +1428,12 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 15.
 LaTeX Info: Redefining \pageref on input line 15.
 LaTeX Info: Redefining \nameref on input line 15.
+ (main.out) (main.out)
 \@outlinefile=\write6
 \openout6 = `main.out'.
 
- ("C:\Program Files\MiKTeX 2.9\tex/context/base/mkii\supp-pdf.mkii"
+
+("C:\Program Files\MiKTeX 2.9\tex/context/base/mkii\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count448
 \scratchdimen=\dimen329
@@ -1923,9 +1926,11 @@ you left one out. Proceed, with fingers crossed.
 \openout2 = `capitulos/clase06NP.aux'.
 
  (capitulos/clase06NP.tex (utils/encabezado.tex)
+Package marginnote Info: Margin note 5.1 is on absolute page 5 on input line 11
+.
 Package marginnote Info: right page because not two side mode on input line 11.
 
-Package marginnote Info: xpos seems to be \@mn@currxpos  on input line 11.
+Package marginnote Info: xpos seems to be 223.785pt on input line 11.
 LaTeX Font Info:    Trying to load font information for T1+lmss on input line 1
 1.
 
@@ -1936,9 +1941,11 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmss' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
+Package marginnote Info: Margin note 5.2 is on absolute page 5 on input line 20
+.
 Package marginnote Info: right page because not two side mode on input line 20.
 
-Package marginnote Info: xpos seems to be \@mn@currxpos  on input line 20.
+Package marginnote Info: xpos seems to be 142.64706pt on input line 20.
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <10> not available
 (Font)              Font shape `T1/lmss/m/sl' tried instead on input line 20.
 
@@ -2097,12 +2104,16 @@ Package amsmath Warning: Foreign command \atop;
 
 
 ]
+Package marginnote Info: Margin note 6.1 is on absolute page 6 on input line 90
+.
 Package marginnote Info: right page because not two side mode on input line 90.
 
-Package marginnote Info: xpos seems to be \@mn@currxpos  on input line 90.
+Package marginnote Info: xpos seems to be 134.2618pt on input line 90.
+Package marginnote Info: Margin note 6.2 is on absolute page 6 on input line 94
+.
 Package marginnote Info: right page because not two side mode on input line 94.
 
-Package marginnote Info: xpos seems to be \@mn@currxpos  on input line 94.
+Package marginnote Info: xpos seems to be 134.17366pt on input line 94.
 
 ! Undefined control sequence.
 \enit@endenumerate ->\enit@after 
@@ -2255,12 +2266,6 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-
-LaTeX Warning: Reference `eqn:op-adj' on page 8 undefined on input line 50.
-
-
-LaTeX Warning: Reference `eqn:op-adj' on page 8 undefined on input line 50.
-
 [8
 
 
@@ -2278,9 +2283,6 @@ and I'll forget about whatever was undefined.
 \openout2 = `capitulos/clase08NP.aux'.
 
  (capitulos/clase08NP.tex (utils/encabezado.tex)
-
-LaTeX Warning: Reference `eqn:t-adj' on page 10 undefined on input line 26.
-
 ! Missing \right. inserted.
 <inserted text> 
                 \right .
@@ -2293,7 +2295,7 @@ really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
 
-Overfull \hbox (103.26257pt too wide) detected at line 37
+Overfull \hbox (105.17934pt too wide) detected at line 37
 [][]  \OT1/lmr/m/n/10 =[]\OMS/lmsy/m/n/10 )  []
  []
 
@@ -2442,15 +2444,6 @@ of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
-
-
-LaTeX Warning: Reference `lem:ker-img' on page 10 undefined on input line 111.
-
-
-LaTeX Warning: Reference `lem:ker-img' on page 10 undefined on input line 121.
-
-
-LaTeX Warning: Reference `lem:ker-img' on page 10 undefined on input line 124.
 
 [10
 
@@ -2954,10 +2947,6 @@ A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
 look up `weird error' in the index to The TeXbook.)
 
-
-LaTeX Warning: Reference `thm:caract-op-acot' on page 12 undefined on input lin
-e 54.
-
 ! Missing $ inserted.
 <inserted text> 
                 $
@@ -3229,63 +3218,44 @@ LaTeX Info: Redefining \% on input line 32.
 (capitulos/clase09NP.aux) (capitulos/clase10NP.aux) (capitulos/clase11NP.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 44.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 44.
-
-
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  894D07CCD74CE3977F5FABCC02800D6A;319.
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package biblatex Warning: Please (re)run BibTeX on the file(s):
-(biblatex)                main
-(biblatex)                and rerun LaTeX afterwards.
-
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: 894D07CCD74CE3977F5FABCC02800D6A;319.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 44.
  ) 
 Here is how much of TeX's memory you used:
- 36738 strings out of 480799
- 710367 string characters out of 2905528
- 1379041 words of memory out of 3000000
- 51704 multiletter control sequences out of 15000+200000
- 654802 words of font info for 165 fonts, out of 3000000 for 9000
+ 36743 strings out of 480799
+ 711104 string characters out of 2905528
+ 1399076 words of memory out of 3000000
+ 51691 multiletter control sequences out of 15000+200000
+ 648823 words of font info for 163 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 68i,18n,88p,3258b,1841s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 63i,18n,86p,3260b,1829s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Program Fil
 es/MiKTeX 2.9/fonts/enc/dvips/lm/lm-rm.enc}{C:/Program Files/MiKTeX 2.9/fonts/e
 nc/dvips/lm/lm-ec.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathsy
 .enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathex.enc}<C:/Program 
 Files/MiKTeX 2.9/fonts/type1/public/lm/lmbx10.pfb><C:/Program Files/MiKTeX 2.9/
 fonts/type1/public/lm/lmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
-c/lm/lmbx7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmbxi10.pfb><
-C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmex10.pfb><C:/Program Files/
-MiKTeX 2.9/fonts/type1/public/lm/lmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/
-type1/public/lm/lmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/l
-mmi5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmmi7.pfb><C:/Progr
-am Files/MiKTeX 2.9/fonts/type1/public/lm/lmr10.pfb><C:/Program Files/MiKTeX 2.
-9/fonts/type1/public/lm/lmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
-ic/lm/lmr5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr7.pfb><C:/
-Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmri10.pfb><C:/Program Files/MiK
-TeX 2.9/fonts/type1/public/lm/lmss10.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
-e1/public/lm/lmssbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lm
-sy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmsy5.pfb><C:/Progr
-am Files/MiKTeX 2.9/fonts/type1/public/lm/lmsy7.pfb><C:/Program Files/MiKTeX 2.
-9/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Program Files/MiKTeX 2.9/f
-onts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (19 pages, 410409 bytes).
+c/lm/lmbxi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmex10.pfb>
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmmi10.pfb><C:/Program Files
+/MiKTeX 2.9/fonts/type1/public/lm/lmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts
+/type1/public/lm/lmmi5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/l
+mmi7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr10.pfb><C:/Progr
+am Files/MiKTeX 2.9/fonts/type1/public/lm/lmr12.pfb><C:/Program Files/MiKTeX 2.
+9/fonts/type1/public/lm/lmr5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
+c/lm/lmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmri10.pfb><C:
+/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmss10.pfb><C:/Program Files/Mi
+KTeX 2.9/fonts/type1/public/lm/lmssbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/
+type1/public/lm/lmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/l
+msy5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmsy7.pfb><C:/Progr
+am Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Program 
+Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on main.pdf (19 pages, 393542 bytes).
 PDF statistics:
- 298 PDF objects out of 1000 (max. 8388607)
- 112 named destinations out of 1000 (max. 500000)
- 28685 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 325 PDF objects out of 1000 (max. 8388607)
+ 114 named destinations out of 1000 (max. 500000)
+ 27701 words of extra memory for PDF output out of 29859 (max. 10000000)
 
