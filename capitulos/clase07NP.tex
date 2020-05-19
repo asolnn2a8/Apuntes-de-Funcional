@@ -11,69 +11,72 @@
 \section*{Operadores no Acotados y Noción de Operador Adjunto}
 
 \begin{defn}
-Una función $T: \underbrace{D(T)}_{\text{sev $E$}}  \subseteq E \to F$ lineal es un operador no acotado
+Una función $T: \underbrace{\cd(T)}_{\text{sev $E$}}  \subseteq E \to F$ lineal es un operador no acotado
 \end{defn}
 
 \begin{defn}
-$T$ se dice acotado si $\exists c \geq 0 :\ \norm[F]{Tx} \leq c \norm[E]{x}, \quad \forall x \in D(T)$
+$T$ se dice acotado si $\exists c \geq 0 :\ \norm[F]{Tx} \leq c \norm[E]{x}, \quad \forall x \in \cd(T)$
 \end{defn}
 
 \begin{defn}
-Un operador  $T: D(T)  \subseteq E \to F$ se dice \textbf{cerrado} si $\gr T$ es cerrado en $E \times F$, donde $\gr T = \{ (x,\ Tx) | x \in D(T) \}$
+Un operador  $T: \cd(T)  \subseteq E \to F$ se dice \textbf{cerrado} si $\gr T$ es cerrado en $E \times F$, donde $\gr T = \{ (x,\ Tx) | x \in \cd(T) \}$
 \end{defn}
 
-\begin{note}: \\
-(1) $T$ cerrado $\implies \ker T$  cerrado $$\ker T \times \{ 0 \} = \gr T \cap (E \times \{ 0 \})$$
-(2) $T$ cerrado $\iff (x_n) \subseteq D(T)$ 
+\begin{note}: 
+\begin{enumerate}[(1)]
+    \item $T$ cerrado $\implies \ker T$  cerrado $$\ker T \times \{ 0 \} = \gr T \cap (E \times \{ 0 \})$$
+    
+    \item$T$ cerrado $\iff (x_n) \subseteq \cd(T)$
+\end{enumerate}
 $$y_n = T x_n , \quad 
 \left.
 x_n \to x \atop
 y_n \to y
-\right \} \implies x \in D(T) \ \wedge \ y = T x$$
+\right \} \implies x \in \cd(T) \ \wedge \ y = T x$$
 \end{note}
 
-\section*{Noción de Adjunto}
+\section{Noción de Adjunto}
 
 Queremos generalizar la noción de matriz transpuesta, y se define el adjunto (o traspuesto) para esta generalización en dimensión infinita.
 
 Sean $E$, $F$ ev Banach
-$T : D(T) \subseteq E \to F$ tal que $\adh D(T) = E$
+$T : \cd(T) \subseteq E \to F$ tal que $\adh \cd(T) = E$
 Queremos definir un operador $T\adj$ , adjunto de $T$ a partir de la propiedad fundamental (o básica) siguiente:
 
 \begin{equation} \label{eqn:op-adj}
-    \prodint[F,F']{Tx}{y} = \prodint[E,E']{x}{T\adj y}, \quad \forall x \in D(T),\ \forall y \in D(T\adj)
+    \prodint[F,F']{Tx}{y} = \prodint[E,E']{x}{T\adj y}, \quad \forall x \in \cd(T),\ \forall y \in \cd(T\adj)
 \end{equation}
 
-Si uno quiere que \eqref{eqn:op-adj} sea cierto, lo primero que observamos es que $T\adj : D(T\adj) \subseteq F' \to E' $ y además $y \in D(T\adj) \iff $ \eqref{eqn:op-adj} se cumple $ \forall x \in D(T) \iff x \in D(T) \mapsto \prodint[F, F']{Tx}{y} $ es una forma lineal continua en $D(T)$
+Si uno quiere que \eqref{eqn:op-adj} sea cierto, lo primero que observamos es que $T\adj : \cd(T\adj) \subseteq F' \to E' $ y además $y \in \cd(T\adj) \iff $ \eqref{eqn:op-adj} se cumple $ \forall x \in \cd(T) \iff x \in \cd(T) \mapsto \prodint[F, F']{Tx}{y} $ es una forma lineal continua en $\cd(T)$
 
-Así, $$ D(T\adj) = \{ y  \in F' | \exists c \geq 0 ,\ \abs{ \prodint{Tx}{y} } \leq c \norm[E]{x} \ \forall x \in D(T) \} $$
+Así, $$ \cd(T\adj) = \{ y  \in F' | \exists c \geq 0 ,\ \abs{ \prodint{Tx}{y} } \leq c \norm[E]{x} \ \forall x \in \cd(T) \} $$
 
-Además, si $y \in D(T\adj)$, entonces la forma lineal $g_y : D(T) \subseteq E \to \rr $ tal que $ x \mapsto \prodint{Tx}{y} $ es continua, y entonces se extiende de manera única a una forma lineal continua $\tilde{g_y} : E \to F$, además 
+Además, si $y \in \cd(T\adj)$, entonces la forma lineal $g_y : \cd(T) \subseteq E \to \rr $ tal que $ x \mapsto \prodint{Tx}{y} $ es continua, y entonces se extiende de manera única a una forma lineal continua $\tilde{g_y} : E \to F$, además 
 
 $$ \abs{\prodint{ \tilde{g_y} }{x}} \leq c \norm[E]{x} \quad \forall x \in E$$
 
 Se define $$ T\adj y = \tilde{g_y} $$
 
 \begin{prop}
-$T: D(T) \subseteq E \to F,\ \adh T = E$ entonces $T\adj$ es cerrado
+$T: \cd(T) \subseteq E \to F,\ \adh T = E$ entonces $T\adj$ es cerrado
 \end{prop}
 
 \begin{proof}
 Sea $(y_n, T\adj y_n) \in \gr T\adj \subseteq F' \times E'$ tal que $y_n \to z $ en $F' \wedge T\adj y_n \to u$  en $E'$
 
-pdq $z \in D(T\adj) ,\ u = T\adj z $
+pdq $z \in \cd(T\adj) ,\ u = T\adj z $
 
-Ahora bien sabemos que $\forall x \in D(T)$
+Ahora bien sabemos que $\forall x \in \cd(T)$
 
 $$ \prodint{Tx}{y_n} = \prodint{x}{T\adj y_n} $$
 
 y haciendo $n \to \infty$
 
-$$ \prodint{Tx}{z} = \prodint{x}{u} ,\ \forall x \in D(T) $$
+$$ \prodint{Tx}{z} = \prodint{x}{u} ,\ \forall x \in \cd(T) $$
 
-y entonces $z \in D(T\adj)$, pues
+y entonces $z \in \cd(T\adj)$, pues
 
-$$ \abs{ \prodint{Tx}{y} } = \abs{ \prodint{x}{u} } \leq \norm[E']{u} \norm[E]{x} \leq c \norm[E]{u} ,\ \foral x \in D(T) $$
+$$ \abs{ \prodint{Tx}{y} } = \abs{ \prodint{x}{u} } \leq \norm[E']{u} \norm[E]{x} \leq c \norm[E]{u} ,\ \foral x \in \cd(T) $$
 
 Además $T\adj z = u$
 \end{proof}
@@ -86,10 +89,10 @@ En optimización, también se ocupa bastante los conceptos de dualidad.
 
 \begin{align*}
 \text{Sea } &(y,\ T\adj y = f) \in \gr T\adj \\
-&\iff \prodint[]{Tx}{y} = \prodint[]{x}{f} \ \forall x \in D(T) \\
-&\iff -\prodint[]{x}{f} + \prodint[]{Tx}{y} = 0 \ \forall x \in D(T) \\
-&\iff  \prodint[]{(x,\ Tx)}{(-f,\ y)}  = 0 \ \forall x \in D(T) \\
-&\iff  (-f,\ y) \in (\gr T)\ort  \ \forall x \in D(T) 
+&\iff \prodint[]{Tx}{y} = \prodint[]{x}{f} \ \forall x \in \cd(T) \\
+&\iff -\prodint[]{x}{f} + \prodint[]{Tx}{y} = 0 \ \forall x \in \cd(T) \\
+&\iff  \prodint[]{(x,\ Tx)}{(-f,\ y)}  = 0 \ \forall x \in \cd(T) \\
+&\iff  (-f,\ y) \in (\gr T)\ort  \ \forall x \in \cd(T) 
 \end{align*}
 
 $J(\gr T\adj) = (\gr T)\ort $, donde $J: (y,\ f) \in  F' \times E' \mapsto (-f,\ y) \in E' \times F'$

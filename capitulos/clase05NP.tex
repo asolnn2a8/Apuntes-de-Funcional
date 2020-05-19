@@ -1,0 +1,51 @@
+%!TEX root = ../main.tex
+
+%%%%% NÚMERO DE LA CÁTEDRA Y FECHA
+\renewcommand{\catnum}{7 (5 No Presencial)}% 6NP %numero de catedra
+\renewcommand{\fecha}{7 de abril de 2020}
+%%%%%%%%%%%%%%%%%%
+%Encabezado
+\input{utils/encabezado}
+%Fin encabezado
+
+\begin{ex}:\\
+\begin{enumerate}[(1)]
+    \item $E$ Banach, $G$ sev cerrado de $E$, $\dim G < + \infty$. Con esto, $\restr{E}{G}$ es cerrado y entonces es suplementario topológico de $G$.
+    \item $G$ sev de $E$ de codimensión finita, ie, $\dim \restr{E}{G} < + \infty$
+    \item $E$ es un espacio de Hilbert. Todo sev $G$ de $E$ cerrado, posee suplementario topológico y es: $$
+    L = G\ort = \{ x \in E | \prodint[]{x}{y} = 0 \quad \forall y \in G \}
+    $$
+    \item $E$ Banach, $f_1,\ \ldots,\ f_n \in E'$ y $G=\{ x \in E | \prodint[]{f_i}{x} = 0 \quad \forall i = 1,\ \ldots ,\ n \}$ (es cerrado y sev).
+\end{enumerate}
+\end{ex}
+
+\begin{prop}
+$$
+\codim G = n
+$$
+\end{prop}
+
+\begin{proof}
+Demostraremos que $\exists x_1,\ \ldots,\ x_n \in E$ l.i. tales que $E = G \oplus \gen{x}{n}$.
+
+Consideremos la aplicación $$
+\deffunc{\varphi}{E}{\rr[n]}{x}{\varphi(x) = ( \prodint[]{f_1}{x},\ \ldots,\ \prodint[]{f_n}{x} )}
+$$
+$\varphi$ es sobreyectiva, pues sino lo fuera $\exists \ver{\alpha} \not= \ver{0} \in \rr[n]$ tal que $\ver{\alpha} \cdot ( \prodint[]{f_1}{x},\ \ldots,\ \prodint[]{f_n}{x} ) \quad \forall x \in E$, ie: 
+% $$
+% \sum_{i=1}^{n} \alpha_i \prodint[]{f_i}{x} = 0 \iff \prodint[]{\sum_{i=1}^{n} \alpha_i f_i}{x} = 0 \implies \sum_{i=1}^{n} \alpha_i f_i = 0 \implies \alpha_i = 0 \quad \forall i \contradic
+% $$
+$$
+\begin{align*}
+    \sum_{i=1}^{n} \alpha_i \prodint[]{f_i}{x} = 0 \iff \prodint[]{\sum_{i=1}^{n} \alpha_i f_i}{x} = 0 \implies \sum_{i=1}^{n} \alpha_i f_i = 0 \implies \alpha_i = 0 \quad \forall &i \\ &\contradic
+\end{align*}
+$$
+
+Como $\varphi$ es sobreyectiva, tomando $e_i = (0,\ \ldots ,\ \underbrace{1}_{i},\ \ldots ,\ 0) \in \rr[n]$, $\exists x_i \in E$ tal que $$
+\varphi (x_i) = e_i
+$$
+
+Así: $\prodint[]{f_j}{x_i} = \delta_{ij} \quad \forall i,\ j = 1,\ \ldots ,\ n$
+
+Luego $E = $
+\end{proof}

@@ -1,0 +1,151 @@
+%!TEX root = ../main.tex
+
+%%%%% NÚMERO DE LA CÁTEDRA Y FECHA
+\renewcommand{\catnum}{13 (11 No Presencial)}% 6NP %numero de catedra
+\renewcommand{\fecha}{28 de abril de 2020}
+%%%%%%%%%%%%%%%%%%
+%Encabezado
+\input{utils/encabezado}
+%Fin encabezado
+
+Queriamos definir el operador doble adjunto $$
+\adjc{(\adjc{T})} 
+$$ con $\adjc{T}$ cerrado. Queremos saber si $$
+\adh \cd (\adjc{T}) \overset{?}{=}  F'
+$$
+
+\begin{thm}
+Sean $E$ y $F$ Banach reflexivo. $\deffuncs{T}{\cd({T}) \subseteq E}{F}$ tal que $\adh \cd(T) = E$, $T$ cerrado.
+
+Entonces $\adh \cd (\adjc{T} ) = F'$.
+
+\end{thm}
+
+En estas condiciones, podemos definir el adjunto del adjunto $\adjc{(\adjc{T})}$ y resulta que $\dadjc{T} = T$
+
+Donde $$
+\deffuncs{
+\adjc{(\adjc{T})}
+}{\cd(\dadjc{T}) \subseteq E''}{F''}
+$$
+
+\begin{proof}
+Usaremos el siguiente corolario de H-B:
+\begin{cor}
+Dado $G$ sev de $E$, si $f \in E'$, $\prodint[]{f}{x} = 0 \ \forall x \in G$ verifica $f = 0$, entonces $\adh G = E$
+
+o bien, viendo la contrarreciproca:
+
+Dado $G$ sev de $E$ no denso, entonces $\exists f \in E' - \{ 0 \}$ tal que $\prodint[]{f}{x} = 0 \ \forall x \in G$.
+\end{cor}
+
+Ocupemos este corolario en su contrarreciproca.
+
+Supongamos que $\exists \varphi \in F''$ no nulo tal que $\prodint[]{\varphi}{\omega} = 0 \ \forall \omega \in \cd(\adjc{T}) \subseteq F'$
+
+Como $\varphi \in F''$, que es reflexivo, $\exists f \in E$ tal que $$
+\prodint[]{\varphi}{v} = \prodint[]{v}{f} \quad \forall v \in F',
+$$ es decir, $\varphi$ se puede representar con $f$.
+
+Como $\varphi$ se anula al evaluarse en $\cd(\adjc{T})$, entonces $f \in \ortc{\cd(\adjc{T})}$ (ie, su representante).
+
+¿Qué podemos decir del par $(0,\, f)$? Tendremos que $(0,\, f) \not \in \gr (T)$, que es cerrado. Luego, podemos separar estrictamente $\gr (T)$ de $\{ (0,\, f) \}$ en $E \times F$
+
+Luego, $\exists (z,\, y) \in E' \times F'$ y $\exists \alpha \in \rr$ tal que $$
+\prodint[]{z}{x} + \prodint[]{y}{Tx} 
+< \alpha < (z,\, 0) + (y,\, f) \qquad \forall x \in \cd(T)
+$$
+
+Como $\cd(T)$ es sev, sigue que $\alpha>0$ y $$
+\left\{
+\begin{array}{l}
+    \prodint[]{z}{x} + \prodint[]{y}{Tx} = 0 \qquad \forall x \in \cd(T) \\
+    \prodint[]{y}{f} > 0
+\end{array}\right.
+$$
+
+De la primera identidad, se concluye que $y \in \dom{\adjc{T}}$ (y $\adjc{T} y = - z$) y como $\prodint[]{y}{f} > 0$ esto contradice que $$
+0 = \prodint[]{\varphi}{\omega} = \prodint[]{\omega}{f} \qquad \forall \omega \in \dom{\adjc{T}}
+$$
+Cuando ponemos  $\omega = y$.
+
+Probemos ahora que $T = \dadjc{T}$. Para ello, demostremos que los grafos son iguales, ie $$
+\graf{T}  = \graf{\dadjc{T}}
+$$
+
+Sabemos que $$
+\ortc{\graf{T}} = J (\graf{\adjc{T}})
+$$ y $$
+\ortc{\graf{\adjc{T}}} = \Tilde{J} (\graf{\dadjc{T}})
+$$
+
+Donde $$
+\deffunc{J}
+{F' \times E'}{E' \times F'}
+{(y,\, f)}{(-f,\, y)}
+$$ y $$
+\deffunc{\Tilde{J}}
+{E'' \times F''}{F'' \times E''}
+{(z,\, h)}{(-h,\, z)}
+$$ Ocupemos que $J$ y $\Tilde{J}$ son biyectivas. luego, 
+\begin{eqnarray}
+\graf{\dadjc{T}} 
+&=& {\Tilde{J}}^{-1} \left( \ortc{\graf{\adjc{T}}} \right) \\
+&=& {\Tilde{J}}^{-1} \left( \ortc{\left( {\Tilde{J}}^{-1}  (\ortc{\graf{T}}) \right)} \right) \\
+&\overset{\text{(a)}}{=}& \ortc{\ortc{\graf{T}}} \\
+&=& \adh \graf{T} \\
+&=& \graf{T} 
+\end{eqnarray}
+
+Donde (a) queda como ejercicio. Es decir, 
+\begin{exer}
+Probar que $$
+{\Tilde{J}}^{-1} \left( \ortc{\left( {\Tilde{J}}^{-1}  (H) \right)} \right) = \ortc{H}
+$$
+\end{exer}
+
+\end{proof}
+
+\section{Capitulo 2:Topología Débiles}
+
+La motivación es tratar de entender los conjuntos compactos en dimensión infinita, pues la situación es más compleja que en el caso finito. Como se hablaba al principio del curso, la compacidad siempre está involucrada en los teoremas de existencia en matemáticas. Con lo cual, se está ``obligado'' a entender bien los compactos.
+
+Dado un conjunto topológico, se tiene que entender bien quienes son los conjuntos compactos. \textit{A priori} se sabe bien quien es abierto y quien es cerrado, pero es difícil saber quien es compacto. 
+
+Al menos para la topología de la norma, se es muy difícil ser compacto. Los compactos son conjuntos muy pequeñas (como los singuletes), cosas que no tienen mucho interés en dimensión infinita.
+
+Con lo cuál, la idea las topologías débiles, es tratar de ver en la topología de la norma, y a esta topología, al tener muchos abiertos, se retirarán un número importante de abiertos, hasta tener una topología con mucho menos abiertos, y por lo tanto, con esta nueva topología, los conjuntos pasan a ser mucho más fácilmente ser compacto. Pero la idea es retirar tantos abiertos, pero sin distorcionar completamente la cualidad de ser evn con esta topología. Así, se retiran abiertos manteniendo el dual tal cual.
+
+Como preliminar, nos propondremos el siguiente problema:
+
+Sea $X$ un conjunto cualquiera e $[Y, \TAU[Y] ]$ un espacio topológico. Y sea $(\varphi_{i})_{i \in I}$ una familia de funciones arbitrarias de $X$ en $[Y, \TAU[Y] ]$.
+
+\textbf{Problema:} ¿Cuál es una topología en $X$ tal que haga continuas a las funciones de la familia $(\varphi_{i})_{i \in I}$?, y ¿Cuál sería la menos fina de estas topologías?
+
+Poniendo en $X$ la topología $\cp(X)$, entonces todas las $\varphi_{i}$ son continuas. La idea es que esta topología se puede refinar.
+
+Consideremos $$
+\cu = \{ 
+{\PHI[i]}^{-1} (\omega) \,|\, i \in I,\, \omega \in \TAU[Y]
+\} \subseteq \cp (X)
+$$
+
+$\cu$ no es necesariamente una topología en $X$.
+
+Es claro que la topología menos fina que hace continua la familia $\PHI[i]$ es $$
+\sigma_X = \text{ topología engendrada por $\cu$}
+$$
+
+si denotamos $\cu = (U_{\lambda})_{\lambda \in \Lambda}$ entonces $$
+\sigma_{X} 
+= \bigcup_{\text{cualquiera}} \ \bigcap_{\text{finitas}} U_{\lambda}
+$$
+
+o bien $$
+\sigma_{X} 
+= \bigcap_{
+\begin{subarray}{c}
+\TAU \text{ es topología en } X \\ \TAU \supseteq \TAU
+\end{subarray}
+} U_{\lambda}
+$$

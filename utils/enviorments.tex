@@ -1,7 +1,7 @@
 %!TEX root = preambulo.tex
 
 %%% Theorem environments %%%
-\newtheorem{thm}{Teorema}%[section]
+\newtheorem{thm}{Teorema}[section]
 \newtheorem{lem}[thm]{Lema}
 \newtheorem{note}[thm]{Nota}
 % \newtheorem{theorem}{thmrema}
@@ -18,3 +18,13 @@
 % \newcounter{assum}
 % \renewcommand{\theassum}{H\arabic{assum}}
 % \addto\captionsspanish{\renewcommand\proofname{Dem}}
+
+\newcommand{\iitem}[1][i]{{\rmfamily{\upshape (}{\itshape #1}\,{\upshape )}}}
+
+\newenvironment{ienumerate}
+{
+\begin{enumerate}[\rmfamily\upshape(\itshape i\,\upshape)]
+% \renewcommand{\labelitemi}{\rmfamily\upshape(\itshape \roman\,\upshape)}
+}{
+\end{enumerate}
+}

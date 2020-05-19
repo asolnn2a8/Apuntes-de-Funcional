@@ -1,12 +1,10 @@
 % ============== Comandos personales ==============
-% igual con definición arriba
-\newcommand{\defeq}{\stackrel{\text{(def)}}{=}}
+\newcommand{\dom}[1]{\cd({#1})}
+\newcommand{\graf}[1]{\gr{(#1)}}
 % norma
 \newcommand{\norm}[2][]{{\parallel #2 \parallel}_{#1}} 
 % espacio de funciones
 \newcommand{\Cf}[2][]{\mathcal{C}^{#1}(#2)}
-% Omega barra
-\newcommand{\bOmega}{\overline{\Omega}}
 % restringido a, obtenido de https://tex.stackexchange.com/questions/22252/how-to-typeset-function-restrictions
 \newcommand\restr[2]{{% we make the whole thing an ordinary symbol
 \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
@@ -14,16 +12,44 @@
 \vphantom{\big|} % pretend it's a little taller at normal size
 \right|_{#2} % this is the delimiter
 }}
-% Ortogonal
-\newcommand{\ort}{^{\perp}}
 % Producto interno
 \newcommand{\prodint}[3][]{ {\langle #2, \ #3 \rangle}_{#1} }
+% def. funcion compleja
+\newcommand{\deffunc}[5]{
+\begin{array}{rcl}
+     #1 : #2 & \longrightarrow & #3 \\
+          #4 & \longmapsto     & #5
+\end{array}
+}
+% def. funcion simple
+\newcommand{\deffuncs}[3]{#1: #2 \to #3}
+
+% igual con definición arriba
+\newcommand{\defeq}{\stackrel{\text{(def)}}{=}}
+
+% Omega barra
+\newcommand{\bOmega}{\overline{\Omega}}
+
+% Ortogonal
+\newcommand{\ort}{^{\perp}}
+\newcommand{\ortc}[1]{{#1}^{\perp}}
+
 % El generado
 \newcommand{\gen}[2][N]{ < #2_1 ,\ \ldots ,\ #2_#1 > }
 % conj de indices
 \newcommand{\cind}[2][1]{ \{ #1 ,\ \ldots ,\ #2 \} }
 % adjunto
 \newcommand{\adj}{^{*}}
+\newcommand{\dadj}{^{**}}
+\newcommand{\adjc}[1]{{#1}^{*}}
+\newcommand{\dadjc}[1]{{#1}^{**}}
+
+\newcommand{\contradic}{\begin{rotate}{25} \longrightarrow \longleftarrow \end{rotate}}
+
+% TAU BKN
+\newcommand{\TAU}[1][]{\mathcal{T}_{#1}}
+% PHI para las funciones
+\newcommand{\PHI}[1][]{\varphi_{#1}}
 % ============== Comandos personales ==============
 
 %%% Standard %%%
@@ -66,6 +92,8 @@
 \newcommand{\cl}{\mathcal{L}}
 \newcommand{\cp}{\mathcal{P}}
 \newcommand{\cm}{\mathcal{M}}
+\newcommand{\cd}{\mathcal{D}}
+\newcommand{\cu}{\mathcal{U}}
 \newcommand{\Cc}{\mathcal{C}}
 \newcommand{\fh}{\mathfrak{h}}
 \newcommand{\fg}{\mathfrak{g}}
@@ -107,11 +135,12 @@
 \DeclareMathOperator{\tr}{\mathop{\uptext{tr}}}
 \DeclareMathOperator{\adh}{\mathop{\uptext{adh}}}
 \DeclareMathOperator{\sgn}{\mathop{\uptext{sgn}}}
+\DeclareMathOperator{\cod}{\mathop{\uptext{cod}}}
 \DeclareMathOperator{\gr}{\mathop{\uptext{Gr}}}
 \DeclareMathOperator{\codim}{\mathop{\uptext{codim}}}
 \RedeclareMathOperator{\det}{\mathop{\uptext{det}}}
 \RedeclareMathOperator{\ker}{\mathop{\uptext{ker}}}
-\RedeclareMathOperator{\im}{\mathop{\uptext{im}}}
+\DeclareMathOperator{\im}{\mathop{\uptext{im}}}
 \RedeclareMathOperator{\exp}{\mathop{\uptext{exp}}}
 \RedeclareMathOperator{\log}{\mathop{\uptext{log}}}
 \RedeclareMathOperator*{\lim}{\mathop{\uptext{lim}}}

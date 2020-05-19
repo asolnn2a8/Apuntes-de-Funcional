@@ -18,20 +18,25 @@ $$N\ort \defeq \{ x \in E | \prodint[E', E]{f}{x} = 0, \ \forall f \in N \} \qua
 \end{defn}
 
 \begin{prop}\MarginNote{Prop. de los ``ortogonal de ortogonales''} \\
-(i) ${(M\ort)}\ort = \adh M$ \\
-(ii) ${(N\ort)}\ort \supseteq \adh N$
+\begin{ienumerate}
+    \item ${(M\ort)}\ort = \adh M$
+    \item ${(N\ort)}\ort \supseteq \adh N$
+\end{ienumerate}
 \end{prop}
 
 Si el espacio es de Hilbert, el producto interno coincide con el producto escalar. De esta forma, esta definición coincide con la noción vista en espacio finito.
 
 \begin{prop}
-Sea $E$ un ev de Banach. $G$, $L$ sev de $E$ cerrados.\\
-(i) $G \cap L = {(G\ort + L\ort)}\ort$\\
-(ii) $G\ort \cap L\ort = {(G + L)}\ort$
+Sea $E$ un ev de Banach. $G$, $L$ sev de $E$ cerrados.
+\begin{ienumerate}
+    \item $G \cap L = {(G\ort + L\ort)}\ort$
+    \item $G\ort \cap L\ort = {(G + L)}\ort$
+\end{ienumerate}
+
 \end{prop}
 
 \begin{proof}: \\ 
-(i) Sea $x \in G \cap L$ y probemos que $x \in {(G\ort + L\ort)}\ort$, ie, pdq $\prodint{f}{x} = 0 \forall f \in G\ort + L\ort$.\\ 
+\iitem[i] Sea $x \in G \cap L$ y probemos que $x \in {(G\ort + L\ort)}\ort$, ie, pdq $\prodint{f}{x} = 0 \forall f \in G\ort + L\ort$.\\ 
 Pero $f \in G\ort + L\ort \iff f = f_1 + f_2$ , con $f_1 \in G\ort$ y $f_2 \in L\ort$, y entonces $\prodint{f_1}{x} = 0$ pues $x \in G$ y $\prodint{f_2}{x} = 0$ pues $x \in L$.\\
 Por lo tanto $\prodint{f_1 + f_2}{x} = 0$. De esta forma, $x \in {(G\ort + L\ort)}\ort$
 
@@ -45,7 +50,7 @@ $${(G\ort + L\ort)}\ort \subseteq L $$
 
 Entonces ${(G\ort + L\ort)}\ort \subseteq G \cap L $. Por lo tanto, ${(G\ort + L\ort)}\ort = G \cap L $. \\
 
-(ii) pdq ${(G\ort \cap L\ort)}\ort = {(G + L)}\ort$\\
+\iitem[ii] pdq ${(G\ort \cap L\ort)}\ort = {(G + L)}\ort$\\
 Sea $f \in G\ort \cap L\ort$ y probemos que $f \in {(G + L)}\ort$, ie, $$ \prodint{f}{x} = 0 \quad \forall x \in G + L $$
 
 Pero, como $x = x_1 + x_2$ con $ x_1 \in G $, $ x_2 \in L $, sigue que $$ \prodint{f}{x_1} = 0 \quad \text{pues $f\in G\ort$}$$ $$ \prodint{f}{x_2} = 0 \quad \text{pues $f\in L\ort$}$$ Sumando, sigue que $$ \prodint{f}{x_1 + x_2} = 0 $$ y entonces $f \in (G + L)\ort$.
@@ -74,7 +79,7 @@ $$\overset{(\perp)}{\implies} (G\ort \cap L\ort)\ort = {(G + L)\ort}\ort = \adh 
 
 Si $G$ y $L$ cerrados, ¿Será $G + L$ cerrado? La respuesta no es trivial, y la respuesta viene de un teorema (que no tiene tantas aplicaciones).
 
-\section*{Noción de Adjunto y Operadores No Acotados}
+\section{Noción de Adjunto y Operadores No Acotados}
 
 Vamos a poner énfasis en las diferencias en la dim. finita y dim infinita.
 
@@ -83,11 +88,11 @@ En dim. finita, lo interesante es que todo operador lineal es continua. La gran 
 En el caso de la dim finita se prueba que todos los op. lineales son continuos y acotados. De hecho, se hace una caracterización de que si es acotado, es continuo.
 
 \begin{defn}\MarginNote{Op. Lineal \textbf{no acotado}}
-Sea $E$, $F$ ev Banach. Un operador $T: D(T) \subseteq E \to F$ con $D(T)$ sev de $E$, se denomina operador (lineal) lineal no-acotado
+Sea $E$, $F$ ev Banach. Un operador $T: \cd(T) \subseteq E \to F$ con $\cd(T)$ sev de $E$, se denomina operador (lineal) lineal no-acotado
 \end{defn}
 
 \begin{defn}\MarginNote{Op. Lineal \textbf{acotado}}
-$T$ se dice \textbf{acotado} si $$\exists M \geq 0, \ \norm[F]{Tx} \leq M \norm[E]{x} \ \forall x \in D(T)$$
+$T$ se dice \textbf{acotado} si $$\exists M \geq 0, \ \norm[F]{Tx} \leq M \norm[E]{x} \ \forall x \in \cd(T)$$
 \end{defn}
 
 Una función se le dice \textbf{no lineal} si es una función cualquiera. Y una función lineal es tmb. no lineal. Los matemáticos ``conviven'' con esta pequeña contradicción.
@@ -99,25 +104,29 @@ Un operador acot. es tmb no-acotado, pero no hay que perder el sueño por esto.
 En dim. finita, todo op. lineal se representa por una matriz.
 
 \begin{exer}
-Si $E = \rr[N]$, $F = \rr[M]$ y $T:D(T) = \rr[N] \to \rr[M]$, entonces $$(T \text{ es no-acotado} )  \iff (T \text{ es acotado} ) \iff (T \text{ es continua en $E$} )$$
+Si $E = \rr[N]$, $F = \rr[M]$ y $T:\cd(T) = \rr[N] \to \rr[M]$, entonces $$(T \text{ es no-acotado} )  \iff (T \text{ es acotado} ) \iff (T \text{ es continua en $E$} )$$
 \end{exer}
 
 \begin{defn}
-Un op. $T: \underset{\text{($D(T)$ sev de $E$)}}{D(T)} \subseteq E \to F$ se dice \textbf{cerrado} si $ \gr (T)$ es cerrado en $E \times F$
+Un op. $T: \underset{\text{($\cd(T)$ sev de $E$)}}{\cd(T)} \subseteq E \to F$ se dice \textbf{cerrado} si $ \gr (T)$ es cerrado en $E \times F$
 \end{defn}
 
-Recordando que $$\gr T = \{ (x, \ Tx) | x \in D (T) \} \subseteq E \times F$$
+Recordando que $$\gr T = \{ (x, \ Tx) | x \in \cd (T) \} \subseteq E \times F$$
 
-\begin{note}: \\
-(i) $T$ cerrado $\implies$ $\ker T$ es cerrado, pues $$ \ker T \times \{ 0\} = \gr T \cap (E \times \{ 0\}), \quad \text{que es cerrado}$$ 
-(ii) $T: D(T) \subseteq E \to F$ es cerrado $\iff$
-$$\left\{
-\begin{array}{l}
-{x_n \in D(T), \ x_n \to x \in E}\\
-{y_n = T x_n \to y_n} \\
-{\Bigl(ie, \ (x_n, \ y_n) \in \gr T, \ (x_n, \ y_n) \to (x, \ y) \Bigr)}
-\end{array}
-\right\} \implies x \in D(T) \wedge y = T x
-$$
-(iii) Para $T$ cerrado, \textbf{no} podemos usar el teo. del grafo cerrado, y concluir que $T$ es continua. (hay que evitar la tentación de ocupar este teorema y decir que $T$ es cont).
+\begin{note}: 
+\begin{ienumerate}
+    \item $T$ cerrado $\implies$ $\ker T$ es cerrado, pues $$ \ker T \times \{ 0\} = \gr T \cap (E \times \{ 0\}), \quad \text{que es cerrado}$$ 
+    
+    \item $T: \cd(T) \subseteq E \to F$ es cerrado $\iff$
+    $$\left\{
+    \begin{array}{l}
+    {x_n \in \cd(T), \ x_n \to x \in E}\\
+    {y_n = T x_n \to y_n} \\
+    {\Bigl(ie, \ (x_n, \ y_n) \in \gr T, \ (x_n, \ y_n) \to (x, \ y) \Bigr)}
+    \end{array}
+    \right\} \implies x \in \cd(T) \wedge y = T x
+    $$
+    
+    \item Para $T$ cerrado, \textbf{no} podemos usar el teo. del grafo cerrado, y concluir que $T$ es continua. (hay que evitar la tentación de ocupar este teorema y decir que $T$ es cont).
+\end{ienumerate}
 \end{note}

@@ -9,16 +9,16 @@
 %Fin encabezado
 
 \begin{thm}[Caracterización operadores acotados]\label{thm:caract-op-acot}
-Sea $T: D(T) \subseteq E \to F$; $\adh D(T) = E$, $T$ cerrado
+Sea $T: \cd(T) \subseteq E \to F$; $\adh \cd(T) = E$, $T$ cerrado
 
 Son equivalentes:
-\begin{enumerate}[(i)]
-    \item $D(T) = E$
+\begin{ienumerate}
+    \item $\cd(T) = E$
     \item $T$ es acotado
-    \item $D(T\adj) = F'$
+    \item $\cd(T\adj) = F'$
     \item $T\adj$ es acotado
-\end{enumerate}
-Y en estas condiciones, $\norm[L(E,\ F)]{T} = \norm[L(F',\ E')]{T\adj}$ % TODO: Cambiarle a la L bonita
+\end{ienumerate}
+Y en estas condiciones, $\norm[\cl(E,\ F)]{T} = \norm[\cl(F',\ E')]{T\adj}$ % TODO: Cambiarle a la L bonita
 \end{thm}
 
 Defina $G = \gr T$ y $L = E \times \{ 0\}$
@@ -27,12 +27,12 @@ Que son sev de $E$ cerrados
 
 \textbf{Recuerdo:} Ejercicio \#4 (Lista \#3)
 
-\begin{enumerate}[(i)]
+\begin{ienumerate}
     \item $\ker T \times \{ 0\} = G \cap L$
     \item $E \times \im T = G + L$
     \item $\{ 0 \} \times \ker T\ort = G\ort \cap L\ort$
     \item $\im T\adj \times F' = G\ort + L\ort$
-\end{enumerate}
+\end{ienumerate}
 
 \begin{enumerate}
     \item $\im T $ es cerrado  \\ 
@@ -70,7 +70,7 @@ Sea $(y_n)_n$ sucesión en $\im T\adj$ tal que $y_n \to y$ en $E'$
 
 pdq $y \in \im T\adj$
 
-Escribamos $y_n = T f_n$ con $f_n \in D(T\adj)$
+Escribamos $y_n = T f_n$ con $f_n \in \cd(T\adj)$
 
 Gracias a $(ii)$, $\forall n,\ m$ $$
 \norm[]{f_n - f_m} \leq c \norm[]{y_n - y_m} \overset{n,\ m \to \infty}{\to} 0
@@ -78,10 +78,10 @@ $$
 y entonces $(f_n)$ es de Cauchy en $F'$, y entonces $f_n \to f$ en $F'$. Con esto, $$
 \left.
 \begin{array}{r}
-     f_n \in D(T\adj), f_n \to f \text{ en $F'$}\\
+     f_n \in \cd(T\adj), f_n \to f \text{ en $F'$}\\
      y_n = T\adj f_n \to y  \text{ en $E'$}
 \end{array}\right \}
-\overset{\text{$T\adj$ es cerrado}}{\implies}  (f,\ y) \in \gr T\adj \text{, ie, } f \in D(T\adj),\ y = T\adj f
+\overset{\text{$T\adj$ es cerrado}}{\implies}  (f,\ y) \in \gr T\adj \text{, ie, } f \in \cd(T\adj),\ y = T\adj f
 $$
 
 Recapitulando:\\
@@ -93,7 +93,7 @@ pdq $(iii) \implies (ii)$ o $(i) \implies (ii)$ en Teo. 2
 Supongamos que $(i)$ en Teo. 2 es Verdadero.
 
 y usaremos el Teorema de B-S al cjto. $$
-G = \{ y \in D(T\adj) \subseteq F' |\ \norm[E']{T\adj y} \leq 1 \}
+G = \{ y \in \cd(T\adj) \subseteq F' |\ \norm[E']{T\adj y} \leq 1 \}
 $$
 
 Comencemos chequeando que es puntualmente acotado: Sea $f \in F$, $$
@@ -115,17 +115,17 @@ $$
 \begin{equation}\label{eqn:concl-int}
 \left.
 \begin{array}{r}
-     y \in D(T\adj)\\
+     y \in \cd(T\adj)\\
      \norm[E']{T\adj y} \leq 1
 \end{array}\right \}
 \implies \norm[F']{y} \leq M
 \end{equation}
 
-Luego, $\forall y \in D(T\adj)$ $$
+Luego, $\forall y \in \cd(T\adj)$ $$
 \norm[]{y} \leq M \norm[]{T\adj y}
 $$
 
-En efecto, sea $z \in D(T\adj )$, cualquiera, y definamos $y = \frac{z}{\norm[]{T\adj z}}$. Luego, $$
+En efecto, sea $z \in \cd(T\adj )$, cualquiera, y definamos $y = \frac{z}{\norm[]{T\adj z}}$. Luego, $$
 \norm[]{z} = \norm[]{T\adj z} \norm[]{y}
 $$
 
@@ -136,13 +136,13 @@ pues $\norm[]{T\adj y} = 1$
 \begin{proof} \textbf{(Del Teorema 3)}\\
 Primero demostremos que $(i) \implies (ii)$ en Teo. 3
 
-Usando Graf. Cerrado, (que se puede usar pues el esp. $[D(T)=E,\ \norm[]{\bullet}]$ es Banach)
+Usando Graf. Cerrado, (que se puede usar pues el esp. $[\cd(T)=E,\ \norm[]{\bullet}]$ es Banach)
 
 Como $T$ es cerrado, es acotado o continuo
 
 Demostremos que $(ii)\implies (iii)$ en Teorema 3.
 
-pdq si $T$ es acot. cont. $\implies$ $D(T\adj) = F'$
+pdq si $T$ es acot. cont. $\implies$ $\cd(T\adj) = F'$
 
 Sea $y \in F'$. Miremos la app. $$
 x\in E \mapsto \prodint[]{y}{Tx}
@@ -151,12 +151,12 @@ $$ Ahora bien, $$
 \leq \norm[]{y} \norm[]{Tx}
 \leq \underbrace{ \norm[]{y} \norm[]{T}}_{c} \norm[]{x} 
 = c \norm[]{x}
-$$ y entonces $y \in D(T\adj)$
+$$ y entonces $y \in \cd(T\adj)$
 
 
 
 \end{proof}
 
-% $T: D(T) \subseteq E \to F$
+% $T: \cd(T) \subseteq E \to F$
 
 % $G = \gr T$ y $L = E \times \{ 0\}$

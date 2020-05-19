@@ -8,31 +8,31 @@
 \input{utils/encabezado}
 %Fin encabezado
 
-$T: D(T) \subseteq E \to F$, donde $\adh D(T) = E$ (se puede obviar pues es spg)
+$T: \cd(T) \subseteq E \to F$, donde $\adh \cd(T) = E$ (se puede obviar pues es spg)
 
 Se quiere definir $T\adj$, el operador adjunto
 
 Que satisfaga la siguiente identidad
 
 \begin{equation}\label{eqn:t-adj}
-\prodint[F,F']{Tx}{y} = \prodint[E,E']{x}{T\adj y} \quad \forall x \in D(T) \ \forall y \in D(T\adj) 
+\prodint[F,F']{Tx}{y} = \prodint[E,E']{x}{T\adj y} \quad \forall x \in \cd(T) \ \forall y \in \cd(T\adj) 
 \end{equation}
 
 % $$ 
-% \prodint[F,F']{Tx}{y} = \prodint[E,E']{x}{T\adj y} \quad \forall x \in D(T) \ \forall y \in D(T\adj) (*)
+% \prodint[F,F']{Tx}{y} = \prodint[E,E']{x}{T\adj y} \quad \forall x \in \cd(T) \ \forall y \in \cd(T\adj) (*)
 % $$
 
 $$
 \eqref{eqn:t-adj} \implies
 \left\{ \begin{array}{l}
-     T\adj: D(T\adj) \subseteq F' \to E' \\
-D(T\adj) = \{ y \in F' |  x \mapsto \prodint[]{Tx}{y} ,\ x \in D(T) \text{ es lineal ie, $\exists c \geq o$; continua, $\abs{ \prodint[]{Tx}{y} } \leq x \norm[]{x} \ \forall x \in D(T) $ } \} \\
-T\adj y = (x \in D(T) \to \prodint[]{Tx}{y})
+     T\adj: \cd(T\adj) \subseteq F' \to E' \\
+\cd(T\adj) = \{ y \in F' |  x \mapsto \prodint[]{Tx}{y} ,\ x \in \cd(T) \text{ es lineal ie, $\exists c \geq o$; continua, $\abs{ \prodint[]{Tx}{y} } \leq x \norm[]{x} \ \forall x \in \cd(T) $ } \} \\
+T\adj y = (x \in \cd(T) \to \prodint[]{Tx}{y})
 \end{array}
 % \left\{
-% T\adj: D(T\adj) \subseteq F' \to E' \atop
-% D(T\adj) = \{ y \in F' |  x \mapsto \prodint[]{Tx}{y} ,\ x \in D(T) \text{ es lineal ie, $\exists c \geq o$; continua, $\abs{ \prodint[]{Tx}{y} } \leq x \norm[]{x} \ \forall x \in D(T) $ } \} \atop
-% T\adj y = (x \in D(T) \to \prodint[]{Tx}{y})
+% T\adj: \cd(T\adj) \subseteq F' \to E' \atop
+% \cd(T\adj) = \{ y \in F' |  x \mapsto \prodint[]{Tx}{y} ,\ x \in \cd(T) \text{ es lineal ie, $\exists c \geq o$; continua, $\abs{ \prodint[]{Tx}{y} } \leq x \norm[]{x} \ \forall x \in \cd(T) $ } \} \atop
+% T\adj y = (x \in \cd(T) \to \prodint[]{Tx}{y})
 % \right.
 $$
 
@@ -49,23 +49,25 @@ $$
 \end{prop}
 
 \begin{prop}
-$T : D(T) \subseteq E \to F$ cerrado y $\adh D(T) = E$ entonces
+$T : \cd(T) \subseteq E \to F$ cerrado y $\adh \cd(T) = E$ entonces
 
-(i) $
+\begin{ienumerate}
+\item $
 \ker T = (\im T\adj) \ort
 $
-
-(ii) $
+\item $
 \ker T\adj = (\im T) \ort
 $
 
-(iii) $
+\item $
 (\ker T)\ort \supseteq \adh (\im T\adj) 
 $
 
-(iv) $
+\item $
 (\ker T\adj)\ort = \adh (\im T)
 $
+
+\end{ienumerate}
 \end{prop}
 
 \begin{proof}:\\
@@ -73,25 +75,29 @@ $G \defeq \gr T$, $L \defeq E \times \{ 0 \}$. $G$, $L$ sev de $E \times F$, ¡c
 \end{proof}
 
 \begin{lem}\label{lem:ker-img}
-$T: D(T) \subseteq E \to F$ no-acotado
+$T: \cd(T) \subseteq E \to F$ no-acotado
 
 y sean $G = \gr T \wedge L = E \times \{ 0 \}$. Entonces
 
-(i) $
+\begin{ienumerate}
+\item $
 \ker T \times \{ 0 \} = G \cap L
 $
 
-(ii) $
+\item $
 E \times \im T = G + L
 $
 
-(iii) $
+\item $
 \{ 0 \} \times \ker T\adj = G\ort \cap L\ort
 $
 
-(iv) $
+\item $
 \im T\adj \times F' = G\ort + L\ort
 $
+
+
+\end{ienumerate}
 \end{lem}
 
 \begin{proof}
@@ -100,37 +106,37 @@ $
 
 \begin{proof}(De la proposición) \\
 
-(i) pdq $$\ker T = (\im T\adj)\ort$$
+\iitem[i] pdq $$\ker T = (\im T\adj)\ort$$
 
-Gracias a (iv) en el lema \ref{lem:ker-img}, y tomando $\perp$ $$
+Gracias a \iitem[iv] en el lema \ref{lem:ker-img}, y tomando $\perp$ $$
 (\im T\adj \times F')\ort = (G\ort + L\ort)\ort = G \cap L
 $$ y entonces $$
 (\im T\adj)\ort \times \{ 0 \} = G cap L = \ker T \times \{ 0 \}
 $$ Luego, $(\im T\adj)\ort = \ker T$.
 
-(ii) pdq $$
+\iitem[ii] pdq $$
 \ker T\adj = (\im T )\ort
 $$
 
-Gracias a (ii) en el lema \ref{lem:ker-img} y tomando $\perp$ nos queda que: $$
+Gracias a \iitem[ii] en el lema \ref{lem:ker-img} y tomando $\perp$ nos queda que: $$
 (\im T \times F)\ort = (G + L)\ort \overset{\text{ver guia 2}}{=} G\ort \cap L\ort
 $$ y entonces $$
  \{ 0 \} \times (\im T )\ort = G\ort \cap L\ort \overset{\text{lema \ref{lem:ker-img}}}{=} \{ 0 \} \times \ker T \adj
 $$
 
-(iii) pdq $$
+\iitem[iii] pdq $$
 (\ker T)\ort \supseteq \adh( \im T\adj )
 $$
 
-Tomando $\perp$ en (i), $$
+Tomando $\perp$ en \iitem[i], $$
 (\ker T)\ort = {(\im T\adj)\ort}\ort \supseteq \adh(\im T \adj)
 $$
 
-(iv) Basta toma $\perp$ a (ii)
+\iitem[iv] Basta toma $\perp$ a \iitem[ii]
 \end{proof}
 
 \begin{note}
-Hay ejemplos explícitos en que la inclusión en (iii) es estricta.
+Hay ejemplos explícitos en que la inclusión en \iitem[iii] es estricta.
 
 Resolver el ejercicio \#2, lista \#3:
 
@@ -159,35 +165,39 @@ T u = f
 \quad \quad \lrcorner $    
 \end{center}
 
-Sea $T: D(T) \subseteq E \to F$, $\adh D(T) = E$, $T$ cerrado
+Sea $T: \cd(T) \subseteq E \to F$, $\adh \cd(T) = E$, $T$ cerrado
 
 \textbf{TFAE:}
 
-(i) $\im T$ es cerrada en $F$
+\begin{ienumerate}
+\item $\im T$ es cerrada en $F$
 
-(ii) $\im T\adj$ es cerrada en $E'$
+\item $\im T\adj$ es cerrada en $E'$
 
-(iii) $(\ker T)\ort = \im T\adj$
+\item $(\ker T)\ort = \im T\adj$
 
-(iv) $(\ker T\adj)\ort = \im T$
+\item  $(\ker T\adj)\ort = \im T$
 
+\end{ienumerate}
 \end{exer}
 
 \begin{thm}[Caracterización de operadores sobreyectivos]: \\
 
 Bajo las mismas hipótesis del ejercicio anterior
 
-TFAE
+\textbf{TFAE}
+\begin{ienumerate}
+\item $T$ es sobreyectivo
 
-(i) $T$ es sobreyectivo
+\item $\exists c \geq 0:\ \norm[F']{y} \leq c \norm[E']{T\adj y} \ \forall y \in \cd(T\adj) $
 
-(ii) $\exists c \geq 0:\ \norm[F']{y} \leq c \norm[E']{T\adj y} \ \forall y \in D(T\adj) $
-
-(iii) $T\adj$ es inyectivo $( \ker T\adj = \{ 0 \} )$ $\wedge $ $\im T\adj$ es cerrada.
+\item $T\adj$ es inyectivo $( \ker T\adj = \{ 0 \} 
+)$ $\wedge $ $\im T\adj$ es cerrada.
+\end{ienumerate}
 \end{thm}
 
 \begin{note}
-Cómo se usa la equivalencia (i)$\iff$(ii) en la práctica. La idea es plantear la ecuación $$
+Cómo se usa la equivalencia \iitem[i]$\iff$\iitem[ii] en la práctica. La idea es plantear la ecuación $$
 T\adj v = g \quad \text{(en $E'$)}
 $$
 

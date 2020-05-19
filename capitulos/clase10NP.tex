@@ -1,0 +1,188 @@
+%!TEX root = ../main.tex
+
+%%%%% NÚMERO DE LA CÁTEDRA Y FECHA
+\renewcommand{\catnum}{12 (10 No Presencial)}% 6NP %numero de catedra
+\renewcommand{\fecha}{27 de abril de 2020}
+%%%%%%%%%%%%%%%%%%
+%Encabezado
+\input{utils/encabezado}
+%Fin encabezado
+
+\begin{thm}
+$E$, $F$ esp. de Banach
+$T : \cd(T) \subseteq E \to F$
+
+$\adh \cd(T) = E$, $T$ es cerrado.
+
+Son equivalentes:
+
+\begin{ienumerate}
+    \item $\cd(T) = E$
+    \item $T$ es acot.
+    \item $ \cd (T\adj) = F' $
+    \item $T\adj$ es acotado
+\end{ienumerate}
+
+Bajo estas condiciones:$$
+\norm[\cl (E;\ F)]{T} = \norm[\cl (F';\ E')]{T\adj}
+$$
+
+\end{thm}
+
+\begin{proof}:\\
+
+\iitem[i] $\implies$ \iitem[ii] Basta con usar el teorema del grafo cerrado.
+
+\iitem[ii] $\implies$ \iitem[iii] Basta con usar la definición $\cd(T\adj)$.
+
+\iitem[iii] $\implies$ \iitem[iv] Basta usar nuevamente Teo. Graf. Cerrado.
+
+\iitem[iv] $\implies$ \iitem[i] (Este es un poco menos trivial) 
+
+Comencemos probando que \iitem[iv] $\implies$ $\cd(T\adj)$ es cerrado. 
+En efecto:
+
+Sea $(y_n) \in \cd(T\adj)$ tq $y_n \to y \in F'$ , y probemos que $y \in \cd(T\adj)$,
+
+La idea es usar la hipótesis \iitem[iv].
+
+Como $T\adj$ es acot.,
+
+% $$
+% \norm[]{T\adj (y_n - y_m) 
+% \leq \underbrace{\norm[]{T\adj}}_{< \infty} \norm[]{y_n - y_m}
+% $$
+
+Y entonces $(T\adj y_n)_n$ es de Cauchy en $E'$, y entonces converge, digamos,
+
+$T\adj y_n \overset{n \to \infty}{\to} f \in E'$. Con esto, $((y_n,\ T\adj y_n))$ es convergente en $F' \times E'$, y como está en $\gr T\adj$, que es cerrado, se concluye que $(y,\ f) \in \gr T\adj$
+
+En particular $y \in \cd(T\adj)$
+
+Probemos ahora que $\cd(T)$ es también cerrado, lo que permite concluir $\cd(T) = E$ , pues $\cd(T)$ es denso en $E$. Para ello definamos $$
+G = \gr T \wedge L = \{ 0 \} \times F
+$$ sev de $E \times F$, cerrados, se tiene que $$
+G + L = \cd(T) \times F
+$$ 
+
+$$
+\left.
+\begin{array}{r}
+     G\ort = (\gr T)\ort = J(\gr T\adj )\\
+     L\ort = E' \times \{ 0 \}
+\end{array} \right \} G\ort + L\ort = E' \times \cd(T\adj)
+$$
+
+y entonces $G\ort + L\ort$ es cerrado en $E' \times F'$.
+
+Luego, gracias al Teorema de la pág. 2 de la guía \#2, $G + L$ es cerrado, y entonces $\cd(T)$ es cerrado en $E$.
+
+Por último, probemos que $\norm[]{T} = \norm[]{T\adj}$
+
+Sabemos que $$
+\prodint[]{y}{Tx} = \prodint[]{T\adj y}{x} \forall x \in \cd(T) \forall y \in \cd(T\adj)
+$$
+
+$$
+\abs{ \prodint[]{y}{Tx} } \leq \norm[]{T\adj y} \norm[]{x} \leq \norm[]{T\adj} \norm[]{y} \norm[]{x} $$
+
+$$
+\underbrace{\sup_{y \in F'} \frac{ \abs{ \prodint[]{y}{Tx} } }{ \norm[]{y} }}_{= \norm[F]{T x}}
+\leq \norm[]{T\adj} \norm[]{ x}
+$$ y así $$
+\norm[]{Tx} \leq \norm[]{T\adj} \norm[]{x}
+$$ lo que implica que $
+\norm[]{T} \leq \norm[]{T\adj}
+$
+
+$$
+\norm[E']{ T\adj y } = \sup_{x \in E} \frac{
+\abs{ \prodint[]{T\adj y}{x} }
+}{
+\norm[E]{x}
+}
+= \sup_{x \in E} \frac{
+\abs{ \prodint[]{y}{T x} }
+}{
+\norm[E]{x}
+}
+\leq \frac{
+\norm[]{y} \norm[]{Tx}
+}{
+\norm[]{x}
+}
+\leq \norm[]{y} \norm[]{T}
+$$ y entonces $\norm[]{T\adj} \leq \norm[]{T}$
+
+\end{proof}
+
+\textbf{Notas y comentarios}
+
+\begin{enumerate}[(1)]
+    \item El teo. 2 posee una versión dual que dice que Si $T$ es a dominio denso y cerrado, entonces $T \adj $ es sobrey. $\iff$ $\exists c \geq 0:\ 
+    \norm[]{x} 
+    \leq c \norm[]{Tx} \quad \forall x \in \cd(T) \iff T \text{ es inyectivo}
+    $ y $\im T$ es cerrada.
+    
+    Su dem. es una aplicación del Teo. 2 a $T\adj$, pues no sabemos que $T\adj$ tenga dominio denso.
+    % $T\adj$ es sobrey. 
+    \item Si $\dim E < + \infty$ o si $\dim F < +\infty$ entonces se tiene $$
+    T \text{ es iny. } \iff T\adj \text{ es sobrey. }
+    $$ $$
+    T\adj \text{ es iny. } \iff T \text{ es sobrey. }
+    $$ pues $\im T$ y $\im T\adj$ son cerrados, y
+    como $
+    (\ker T)\ort = \adh(\im T\adj) = E'
+    $, y $
+    \ker T = \{ 0 \}
+    $. También $
+    (\ker T\adj )\ort = \adh( \im T ) = F
+    $
+    % entonces gracias al Teo. 2 y su 
+    
+    En dimensión infinita, sólo se tiene $$
+    T \text{ es sobrey} \implies T\adj \text{ es iny.}
+    $$ $$
+    T\adj \text{ es sobrey} \implies T \text{ es iny.}
+    $$ Y la inversa \textbf{no} es cierta en gral.
+    
+    \textbf{Contraejemplo}
+    
+    $E = F = \ell_{2}$
+    $T : E \to F$
+    $u = (u_n)$
+    $T u = v = \left( \frac{u_n}{n} \right)
+    $
+    
+    Como $E$ es Hilbert, $E' = F' = \ell_{2}$. Además, $T$ es continua y que $T\adj = T$. En efecto, $$
+    \prodint[]{Tu}{v} 
+    = \prodint[]{ \left( \frac{u_n}{n} \right) }{ (v_n) } 
+    = \sum_{n} \frac{u_n}{n} v_n
+    = \sum_n u_n \frac{v_n}{n}
+    = \prodint[]{u}{T\adj v}
+    $$ Luego, $T\adj v = \left( \frac{v_n}{n} \right) = T v$
+    
+    Claramente, $T$ y $T\adj$ son inyectivos, pues $$
+    T v = 0 
+    \iff u \equiv 0
+    $$ Pero, $T$ (resp. $T\adj$) \textbf{no} es sobre, pues $$
+    \im T = \{ v \in \ell_2 | v = \left( \frac{u_n}{n} \right),\ u \in \ell_2 \} 
+    % \varsubsetneqq \ell_2
+    = \{ v \in \ell_2 | (n v_n) \in \ell_2 \}
+    $$ $\left( \frac{1}{n^2} \right) \in \ell_2$, pero, $\left( n \frac{1}{n^2} \right) = \left( \frac{1}{n} \right) \not \in \ell_2$
+    
+    $\left( \frac{1}{n^2} \right) \in \ell_2\text{, pero, } \left( \frac{1}{n^2} \right) \not \in \im T$.
+    % Pero, $\im T$ es cerrada, pues $$
+    % \adh( \im T ) = ( \ker T\adj )\ort = ( \ker T )\ort
+    % $$
+    
+\end{enumerate}
+
+\newpage
+\section{Doble adjunto ${T\dadj} $}
+
+\begin{thm}
+Sean $E$, $F$ Banach reflexivos. (ie, $E'' = E$, $F'' = F$). Si $T : \cd(T) \subseteq E \to F$ es cerrado y $\adh \cd(T) = E$, entonces $\cd(T\adj)$ es denso en $F'$.
+\end{thm}
+
+En este caso, podemos definir $T\dadj : \cd(T\dadj) \subseteq E'' \to F''$ o bien $T\dadj : \cd(T\dadj) \subseteq E \to F$ y $T \dadj = T$.
