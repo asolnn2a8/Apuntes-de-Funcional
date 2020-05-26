@@ -1,0 +1,161 @@
+%!TEX root = ../main.tex
+
+%%%%% NÚMERO DE LA CÁTEDRA Y FECHA
+\renewcommand{\catnum}{\theNPclase \ No Presencial}% 6NP %numero de catedra
+\renewcommand{\fecha}{4 de mayo de 2020}
+%%%%%%%%%%%%%%%%%%
+%Encabezado
+\input{utils/encabezado}
+%Fin encabezado
+
+Tenemos $
+(\PHI_i)_{i \in I} 
+$ de forma talque $$
+\deffuncs{\PHI_i}
+{X}{[Y,\, \TAU_Y]}
+$$
+
+Y además 
+\begin{eqnarray}
+\cu 
+&=& \{ \PHI^{-1}_i (\omega) | \omega \in \TAU_Y,\, i \in I \} \\
+&=& {(U_{\lambda})}_{\lambda \in \Lambda}
+\end{eqnarray}
+
+Con esto, una base de vecindades abiertas de un punto $x \in X$  fijo, es simplemente las intersecciones finitas de elementos $U_\lambda \in \cu$ tales que $\PHI_i(x) \in \omega \ \forall i \in J \subseteq I,\, J$ finito.
+
+\begin{prop}\label{prop:prop-1-top-debil}
+:\\ 
+\begin{ienumerate}
+    \item que una suceción $(x_n) \to x$  en $[X,\, \sigma_X] \iff (\PHI_i(x_n)) \to \PHI_i (x)$  en $[Y,\, \TAU_Y]$ para toda $i \in I$
+    \item Sea $Z$ un et y $\deffuncs{\psi_i}{[Z,\, \TAU_Z]}{[X,\, \TAU_X]}$, $\psi$ es continua $\iff (\PHI_i \circ \psi)$ es continua de $Z$ en $Y$
+\end{ienumerate}
+\end{prop}
+
+A pesar de que la proposición es muy simple, es al mismo tiempo muy útil, pues entrega una noción de convergencia muy simple en esta topología, y además una noción de continuidad en esta topología.
+
+\begin{proof}
+Empecemos por \iitem[i]
+
+\begin{itemize}
+    \item[$(\Rightarrow)$] Trivial
+    
+    \item[$(\Leftarrow)$] Sea $U$ una vecindad abierta de $x$ en $\sigma_X$, o mejor, en la base de vecindades abiertas de $x$, esto es, sea $U$ de la forma $$
+    U = \bigcap \{ \PHI_i^{-1} (\omega_i) \,|\, \omega_i \in \TAU_Y,\, \PHI_i(x) \in \omega_i,\, i \in J,\, \text{$J$ finito}  \}
+    $$
+    
+    Sabemos que $\PHI_i (x_n) \to \PHI_i (x) ,\, \forall i \in J$, i como $\PHI_i(x) \in \omega_i$, entonces $\exists N_i$ tal que $ \forall n \geq~N_i,\, \PHI_i(x_n) \in \omega_i $ Definiendo $N = \max_{i\in J} N_i$ sigue que $\forall n \geq N,\, \PHI_i(x_n) \in \omega_i \, \forall i \in J$, y entonces $x_n \in \PHI_i^{-1}(\omega_i),\ \forall i \in J \implies x_n \in U ,\ \forall n \geq N$
+\end{itemize}
+
+Sigamos con \iitem[ii]
+\begin{itemize}
+    \item[$(\Rightarrow)$] Trivial
+    
+    \item[$(\Leftarrow)$] Sea $U$ abierto en $X$. Debemos probar que $\psi^{-1} (U)$ es abierto en $Z$.
+    
+    Comencemos suponiendo que $U$ tiene la forma $$
+    U = \bigcap \{ \PHI_i^{-1} (\omega_i) \,|\, \omega_i \in \TAU_Y,\, i \in J,\, \text{$J$ finito}  \}
+    $$
+    
+    Luego
+    \begin{eqnarray}
+    \psi^{-1} (U) 
+    &=& \psi^{-1} \left(\bigcap_{i \in \text{$J$ finito}} \{ \PHI_i^{-1} (\omega_i) \,|\, \omega_i \in \TAU_Y\}\right) \\
+    &=& \bigcap_{i \in \text{$J$ finito}} \left\{ \psi^{-1} \left(\PHI_i^{-1} (\omega_i) \right) \,|\, \omega_i \in \TAU_Y\right\} \\
+    &=& \bigcap_{i \in \text{$J$ finito}} \left\{ (\PHI_i \circ \psi)^{-1}  (\omega_i)  \,|\, \omega_i \in \TAU_Y\right\}
+    \end{eqnarray}
+    
+    Pero $(\PHI_i \circ \psi)^{-1} $ es continua, y entonces $(\PHI_i \circ \psi)^{-1} (\omega_i)$ es continua en $Z$, y la intersección finita también lo es.
+    
+    En el caso general $$
+    U = \bigcup_{\text{cualquiera}} \bigcap_{\text{finita}} 
+    \{ \PHI_i^{-1} (\omega_i) \,|\, \omega_i \in \TAU_Y,\, i \in J\}$$
+    
+    Ahora $$
+    \psi^{-1} (U) = \bigcup_{\text{cualquiera}}
+    \psi^{-1} \left( 
+    \bigcap_{\text{finita}} 
+    \{ \PHI_i^{-1} (\omega_i) \,|\, \omega_i \in \TAU_Y,\, i \in J\} \right)
+    $$ que lo que está evaluado en $\psi^{-1}$ es abierto en $Z$.
+    
+    
+\end{itemize}
+\end{proof}
+
+\begin{defn}[Topología débil]
+Sea $E$ Banach, el dual $E'$ lo miraremos de la forma $E' = (f)_{f \in E'}$ es decir, lo veremos como la familia de funcionales lineales continuos de $E$ en $\rr$. La \textit{topología débil} en $E$ se define como la topología menos fina que hace continuas a la familia $(f)_{f \in E'}$.
+
+La topología débil se denota $\sigma(E,\, E')$ (El sigma es porque es una topología, el $E$ es en dónde se induce, y el $E'$ es por quién se induce).
+\end{defn}
+
+La idea es quitar tantos abiertos como sea posible, evitando que esto deje de ser una topología y permitimos que muchas funciones dejen de ser continuas, pero que los funcionales lineales continuas no pierdan la caracteristica de ser continuas.
+
+\begin{prop}[] \label{prop:prop-2-sig-E-E'-separada}
+$\sigma(E,\, E')$ es separada.
+\end{prop}
+
+\begin{proof}
+Sean $x_1,\, x_2 \in E$, $x_1 \not = x_2$,
+
+Separemos $\{ x_1 \}$ de $\{ x_2 \}$ estrictamente\footnote{Se puede hacer porque ambos son compactos.} $\exists f \in E',\, \exists \alpha \in \rr \, : \, $ 
+\begin{equation}
+    \prodint[]{f}{x_1} < \alpha < \prodint[]{f}{x_2}
+\end{equation}
+
+Luego,
+\begin{eqnarray}
+    U_1 &=& f^{-1} \big( (-\infty,\, \alpha) \big) \\
+    U_2 &=& f^{-1} \big( (\alpha,\, + \infty) \big)
+\end{eqnarray}
+
+Luego, son abiertos disjuntos de $\topdebilE$ tales que $x_1 \in U_1$ y $x_2 \in U_2$.
+\end{proof}
+
+Gracias a la proposición \ref{prop:prop-1-top-debil} se tiene que una sucesión $(x_n)$ en $E$, $x_n \to x$ para $\topdebilE$ $\iff$ $\forall f \in E'$, $\prodint[]{f}{x_n} \to \prodint[]{f}{x}$ en $\rr$.
+
+\begin{notation}
+Si $x_n \to x$ en $\topdebilE$, tenemos que $x_n$ converge débilmente a $x$ y se escribe que $x_n \convdebil x$ en $E$-débil
+\end{notation}
+
+Si $x_n$ converge a $x$ para la topología de la norma, $\TAU[\norm{\bullet}]$, escribiremos 
+\begin{equation}
+    x_n \to x \qquad \text{en $E$-fuerte}
+\end{equation}
+
+\begin{ex}:\\
+\begin{enumerate}
+    \item $E = \ell_{2}$ y $x_n = (0,\, 0,\, \ldots,\, 1,\, 0,\, \ldots) = e_n$ donde el 1 está en la coordenada $n$
+    
+    $(x_n)$ no converge fuerte, pues $\norm[2]{x_n} = 1$ y $\norm[2]{x_n - x_m} = \sqrt{2} > 0$ (en el caso en que $n \not = m$), por lo tanto esta sucesión no tienen ninguna chance de converger pues no es de Cauchy.
+    
+    Sin embargo, $(x_n) \convdebil 0$ en $\ell_2$-débil, pues $\forall y \in \ell_2$,
+    \begin{equation}
+        \prodint[]{y}{x_n} = (y \cdot x_n)_n = y_n \to 0
+    \end{equation}
+    
+    Con esto, se evidencia que convergencia débil $\nRightarrow$ convergencia fuerte.  
+    
+    \item $x_n \to x$ en $E$-fuerte $\implies$ $x_n \convdebil x$ en $E$-débil.
+    
+    \item Si estamos en $\ell_1$, la sucesión del ejemplo 1, $x_n = e_n$ no converge débil a cero pues si $y \in (\ell_1)' = \ell_{\infty}$,
+    \begin{equation}
+        \prodint[]{y}{x_n} = y_n,
+    \end{equation}
+    
+    No converge a cero necesariamente.
+\end{enumerate}
+\end{ex}
+
+\begin{prop}\label{prop:prop-3-conv-debil-acot}
+Sea $E$ Banach,
+\begin{ienumerate}
+    \item $x_n \convdebil x$ en $E$-débil $\implies$ $$\exists M \in \rr:
+        \norm[E]{x_n} \leq M,\ \forall n \ \wedge \ \norm[]{x} \leq \liminf_{n \to \infty} \norm[]{x_n} $$
+        
+    \item $
+    \left.\begin{array}{r}
+        \text{$x_n \convdebil x$ en $E$-débil} \\
+        \text{$f_n \to f$ en $E'$-fuerte}
+    \end{array}\right\} \implies \prodint[]{f_n}{x_n} \to \prodint[]{f}{x}$ en $\rr$
+\end{ienumerate}
+\end{prop}

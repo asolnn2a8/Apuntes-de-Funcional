@@ -1,8 +1,13 @@
 % ============== Comandos personales ==============
+%Comando para conjuntos
+\newcommand{\conj}[1]{\left\{ #1 \right\}}
+% Top. de la norma
+\newcommand{\topDeLaNorma}{\TAU_{\norm{\bullet}}}
+
 \newcommand{\dom}[1]{\cd({#1})}
 \newcommand{\graf}[1]{\gr{(#1)}}
 % norma
-\newcommand{\norm}[2][]{{\parallel #2 \parallel}_{#1}} 
+\newcommand{\norm}[2][]{{\parallel #2 \parallel}_{#1}}
 % espacio de funciones
 \newcommand{\Cf}[2][]{\mathcal{C}^{#1}(#2)}
 % restringido a, obtenido de https://tex.stackexchange.com/questions/22252/how-to-typeset-function-restrictions
@@ -38,6 +43,9 @@
 \newcommand{\gen}[2][N]{ < #2_1 ,\ \ldots ,\ #2_#1 > }
 % conj de indices
 \newcommand{\cind}[2][1]{ \{ #1 ,\ \ldots ,\ #2 \} }
+\newcommand{\topdebil}[2]{\sigma(#1,\, #2)}
+\newcommand{\topdebilE}{\topdebil{E}{E'}}
+\newcommand{\convdebil}{\rightharpoonup}
 % adjunto
 \newcommand{\adj}{^{*}}
 \newcommand{\dadj}{^{**}}

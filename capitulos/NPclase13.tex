@@ -1,0 +1,233 @@
+%!TEX root = ../main.tex
+
+%%%%% NÚMERO DE LA CÁTEDRA Y FECHA
+\renewcommand{\catnum}{\theNPclase \ No Presencial}% 6NP %numero de catedra
+\renewcommand{\fecha}{5 de mayo de 2020}
+%%%%%%%%%%%%%%%%%%
+%Encabezado
+\input{utils/encabezado}
+%Fin encabezado
+
+\begin{proof}
+De la proposición \ref{prop:prop-3-conv-debil-acot}
+
+\begin{ienumerate}
+    \item $(x_n)_n \subseteq E$; $x_n \convdebil x$ en $E$-débil
+    
+    Probemos que $(x_n)$ es acotada, usando uno de los corolarios del teorema de B-St
+    
+    Sea $B=\{(x_n)\}$, $B$ es acotado si 
+    \begin{equation}
+        \bigcup_{n \in \nn} \{\prodint[]{f}{x_n} \} \text{ es acotado en $\rr$, $\forall f \in E'$}
+    \end{equation}
+    
+    Pero como $f$ es continuo, $(\prodint[]{f}{x_n})_n$ es convergente y entonces es acotada.
+    
+    Además, razonando por dualidad, 
+    
+    \begin{eqnarray}
+        \norm[E]{x} 
+        &=& \sup_{f \in E'} \frac{\prodint[]{f}{x}}{\norm[E']{f}} \\
+        &\underset{\text{sup se alcanza}}{=}& \frac{\prodint[]{f_0}{x}}{\norm[E']{f_0}} \\
+        &=& \lim_{n \to \infty} \frac{\prodint[]{f_n}{x}}{\norm[E']{f_n}} \\
+        &\leq& \norm[]{x_n}
+    \end{eqnarray}
+    
+    Con esto,
+    \begin{equation}
+    \left.\begin{array}{l}
+         \norm[]{x} = \lim_{n \to \infty} \frac{\prodint[]{f_n}{x}}{\norm[E']{f_n}}\\
+         \frac{\prodint[]{f_n}{x}}{\norm[E']{f_n}} \leq \norm[]{x_n}
+    \end{array}\right\} \implies \norm[]{x} \leq \liminf_{n\to\infty} \norm[]{x_n}
+    \end{equation}
+    
+    \item pdq 
+    
+    \begin{equation}
+    \left.\begin{array}{l}
+         x_n \convdebil x \text{ en $E$-débil}\\
+         f_n \to f \text{ en $E'$-fuerte}\\
+    \end{array}\right\} \implies \prodint[]{f_n}{x_n} \to \prodint[]{f}{x}
+    \end{equation}
+    
+    Veremos el módulo de la resta:
+    
+    \begin{eqnarray}
+        |
+        \prodint[]{f}{x} - \prodint[]{f_n}{x_n}
+        |
+        &\leq& 
+        |
+        \prodint[]{f}{x - x_n}
+        | 
+        + |
+        \prodint[]{f - f_n}{x_n}
+        | \\
+        &\leq&
+        |
+        \prodint[]{f}{x - x_n}
+        | 
+        + \norm[]{f - f_n } \norm[]{x_n}\\
+        &\leq&
+        \underbrace{
+        |
+        \prodint[]{f}{x - x_n}
+        |}_{\to 0}
+        + \underbrace{
+        M \norm[]{f - f_n }}_{\to 0}
+    \end{eqnarray}
+\end{ienumerate}
+\end{proof}
+
+\begin{prop}\label{prop:prop-4-base-de-vecindades}
+Sea $x_0 \in E$, una base de vecindades abiertas débiles (para $\topdebilE$) son los conjuntos $V = V(x_0,\, \epsilon)$ de la forma 
+\begin{equation}
+    V = \{ x \in E | \abs{ \prodint[]{f_n}{x - x_0} } < \epsilon \ \forall i \in I \}
+\end{equation}
+
+Con $\epsilon > 0$ y $f_i \in E',\ \forall i \in I$, $I$ finito. O bien, equivalentemente
+
+\begin{equation}
+    V = \left\{ x \in E \Big| \sum_{i \in I} \abs{ \prodint[]{f_i}{x - x_0} } < \epsilon  \right\}
+\end{equation}
+\end{prop}
+
+\begin{proof}
+Los conjuntos $V$ son de la forma 
+\begin{equation}
+    V = \bigcap_{i \in I} f_i^{-1} \big( ]a_1 - \epsilon,\, a_i + \epsilon[ \big)
+\end{equation}
+
+con $a_i = f_i(x_0)$
+
+Que es exactamente la forma de las bases de vecindades de $x_0 \in X$ en la topología $\sigma_X$ que hace continua una familia de funciones.
+\end{proof}
+
+
+\section{Estudio comparativo entre la topología débil $\topdebilE$ y la topología fuerte o de la norma $\topDeLaNorma$$}
+
+Siempre se tiene que $\topdebilE \subseteq \topDeLaNorma$
+
+\begin{thm}\label{teo:teo-1-dim-finit-top-coinciden}
+Si $\dim E < + \infty$ ($E = \rr[N]$), entonces 
+\begin{equation*}
+    \topdebilE = \topDeLaNorma
+\end{equation*}
+\end{thm}
+
+\begin{proof}
+Suponga $E = <e_1,\, \ldots,\, e_N>$ con $\norm[E]{e_i} = 1$. Basta con probar que  si $V = B_{E}(x_0,\, r)$ es vecindad abierta de $x_0 \in E$ para la $\topDeLaNorma$, entonces $\exists U $ vecindad de $x_0$ en $\topdebilE$, $V \supseteq U$. Busquemos $U$ de la forma:
+\begin{equation*}
+    U = \left\{ 
+    x \in E \Big| \sum_{i=1}^{m} \abs{ \prodint[]{f_i}{x - x_0} } < \epsilon
+    \right\}
+\end{equation*}
+
+Donde $f_1,\, \ldots,\, f_m \in E'$ (buscamos $\epsilon$, $f_1,\, \ldots,\, f_m$ de manera que $U \subseteq V$). Para ello, escribamos que
+\begin{eqnarray*}
+    V &=& \{
+    x \in E |
+    \norm[E]{x - x_0} < r
+    \} \\
+    &=& \left\{ x \in E \Big|
+    \norm[]{\sum_{i=1}^{N} (x_i - x_0) e_i} < r
+    \right\} \\
+    &=& \left\{ x \in E \Big|
+    \norm[]{\sum_{i=1}^{N}
+    \prodint[]{p_i}{x - x_0}
+     e_i} < r
+    \right\}
+\end{eqnarray*}
+
+Donde $p_i$ es la aplicación que a $x \in E \mapto x_i \in \rr$, el descomponer $x = \sum_{i=1}^{N} x_i e_i$.
+
+Ahora bien, 
+\begin{equation*}
+    \norm[]{
+    \sum_{i=1}^{N}\prodint[]{p_i}{x - x_0}e_i
+    }
+    \leq \sum_{i=1}^{N}\abs{\prodint[]{p_i}{x - x_0}},
+\end{equation*}
+
+y entonces, tomando $m = N $, $f_i = p_i$, $\epsilon = r$, se tiene que $U \subseteq V$
+\end{proof}
+
+Si $\dim E = + \infty$, entonces $\topdebilE  \subsetneq \topDeLaNorma$
+
+\begin{ex}:\\
+\begin{enumerate}
+    \item $\dim E = + \infty$. Sea
+    \begin{equation*}
+        S = \conj{
+        x \in E | \norm[]{x} = 1
+        }
+    \end{equation*}
+    Es bien sabido que $S$ es cerrado fuerte. Sin embargo, no es cerrado débil, además
+    \begin{equation*}
+        \overline{S}^{\topdebilE} = \overline{B}_{\epsilon}(0,\, 1)= \conj{
+        x \in E| \norm[]{x} \leq 1
+        }
+    \end{equation*}
+    
+    Resultado probado por Eduardo y Nicolás.
+    
+    \item Si $\dim E = + \infty$, entonces $B_{\epsilon} (0,\, 1)$ \textbf{no es} nunca abierta para $\topdebilE$. En efecto, sea $x_0 \in B_{E}(0,\, 1)$ y probemos que no existe $V$, vecindad de $x_0$ en $\topdebilE$ contenida en $B_{\epsilon} (0,\, 1)$
+    
+    En efecto, sea
+    \begin{equation*}
+        V = \conj{
+        x \in E | \abs{\prodint[]{f_i}{x-x_o}} < \epsilon \ \forall i \in I \text{, con $I$ finito}
+        }
+    \end{equation*}
+    
+    Cin $f_i \in E'$, $\epsilon > 0$, una vecindad de $x_0$ en $\topdebilE$, y probemos que no es posible que $V \subseteq B(0,\, 1)$. Esto probaría que además, $(B_\epsilon(0,\, 1))^{\circ,\, \topdebilE} = \emptyset$.
+    
+    Admitiremos por un momento que 
+    \begin{equation*}
+        G = \bigcap_{i\in I} \ker(f_i) \not = \conj{0}
+    \end{equation*}
+    
+    Fijemos $y \not = 0$, $y \in G$, y analicemos la recta 
+    \begin{eqnarray}
+    L:& x_0 + \lambda y,\ \lambda \in \rr
+    \end{eqnarray}
+    
+    Vamos a afirmar que los $f_i$ son constantes a lo largo de $L$, pues $\prodint[]{f_i}{x_0 + y} = \prodint[]{f}{x_0}$ $\forall i \in I$. Y entonces $L \subseteq V$.
+    
+    ¿En $L$ hay elementos de norma $\geq 1$?
+    
+    La respuesta es sí, pues consideremos, la función real $h: \lambda \in \rr \mapsto \norm[]{x_0 + \lambda y} \in \rr$. Ahora bien, $h(0) = \norm[]{x_0} < 1$, $h(\lambda) \to \infty$ cuando $h \to \pm \infty$.
+    
+    Entonces, por continuidad, $\exists \Bar{\lambda}$, $h(\lambda) = M$, con $M$ real fijo cualquiera $\geq 1$. ($\im(h) = [x_0,\, \infty)$)
+    
+\end{enumerate}
+\end{ex}
+
+\begin{thm}
+Sea $C \subseteq E$, $C$ convexo
+\begin{equation*}
+    \text{$C$ es cerrado débil $\iff$ $C$ es cerrado fuerte}
+\end{equation*}
+\end{thm}
+
+\begin{proof}:\\
+\begin{itemize}
+    \item[($\Rightarrow$)] Directa
+    
+    \item[($\Leftarrow$)] Sea $x_0\in \mathcal{C}_{E} C$\footnote{$\mathcal{C}_{E} C$ denota el complemento con respecto a $E$ de $C$} (que es abierto fuerte)
+    
+    Separemos $x_0$ de $C$ (convexo cerrado fuerte) estrictamente.
+    
+    Luego $\exists f_0 \in E'$, $\exists \lambda \in \rr$ tal que
+    \begin{equation*}
+        \prodint[]{f_0}{x} < \alpha < \prodint[]{f_0}{x_0} \quad \forall x \in C
+    \end{equation*}
+    
+    Luego, 
+    \begin{equation*}
+        U = f^{-1}\big( (\alpha,\, + \infty) \big),
+    \end{equation*}
+    
+    Que es abierto débiñ, queda totalmente contenida en $\mathcal{C}_E C$. Así, $\mathcal{C}_E C$ es abierto débil.
+\end{itemize}
+\end{proof}
