@@ -1,4 +1,17 @@
 % ============== Comandos personales ==============
+\newcommand{\bolacerrada}{\overline{B}}
+\newcommand{\bolacerradaf}[3][]{\bolacerrada_{#1}(#2,\, #3)}
+\newcommand{\bolacerradaunitariaf}[1][]{\bolacerrada_{#1}(0,\, 1)}
+
+\newcommand{\bolaabierta}{B}
+\newcommand{\bolaabiertaf}[3][]{\bolaabierta_{#1}(#2,\, #3)}
+\newcommand{\bolaabiertaunitariaf}[1][]{\bolaabierta_{#1}(0,\, 1)}
+
+\newcommand{\inv}{^{-1}}
+
+%
+\newcommand{\compl}[1]{\mathcal{C}_{#1}}
+
 %Comando para conjuntos
 \newcommand{\conj}[1]{\left\{ #1 \right\}}
 % Top. de la norma
@@ -45,6 +58,8 @@
 \newcommand{\cind}[2][1]{ \{ #1 ,\ \ldots ,\ #2 \} }
 \newcommand{\topdebil}[2]{\sigma(#1,\, #2)}
 \newcommand{\topdebilE}{\topdebil{E}{E'}}
+\newcommand{\topdebilestrE}{\topdebil{E'}{E}}
+\newcommand{\topprod}{\TAU_{\text{prod}}}
 \newcommand{\convdebil}{\rightharpoonup}
 % adjunto
 \newcommand{\adj}{^{*}}
@@ -78,7 +93,7 @@
 \newcommand{\wh}{\widehat} % Gorrito (^)
 \newcommand{\qand}{\quad\text{and}\quad} % and
 \newcommand{\qqand}{\qquad\text{and}\qquad} % and
-\newcommand{\inv}[1]{\frac{1}{#1}} % inversa de
+% \newcommand{\inv}[1]{\frac{1}{#1}} % inversa de
 \newcommand{\abs}[1]{\ensuremath{\left|#1\right|}} % valor absoluto
 \newcommand{\twopii}[1]{(2\pi\I)^{#1}} 
 \newcommand{\itwopii}[1]{\frac{1}{(2\pi\I)^{#1}}}

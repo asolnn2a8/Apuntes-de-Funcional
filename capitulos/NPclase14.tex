@@ -1,0 +1,119 @@
+%!TEX root = ../main.tex
+
+%%%%% NÚMERO DE LA CÁTEDRA Y FECHA
+\renewcommand{\catnum}{\theNPclase \ No Presencial}% 6NP %numero de catedra
+\renewcommand{\fecha}{26 de mayo de 2020}
+%%%%%%%%%%%%%%%%%%
+%Encabezado
+\input{utils/encabezado}
+%Fin encabezado
+
+Módulo \#1
+
+\begin{itemize}
+    \item Caracterización de cerrado fuertes que también son cerrados débiles
+    
+    \item Funciones lineales continuas fuertes son también continuas débiles
+    
+    \item Noción de espacio bidual
+\end{itemize}
+
+\begin{thm}\label{teo:teo-1-C-cerrado-debil}
+Sea $C$ un convexo de un espacio de Banach $E$. Luego,
+\begin{equation*}
+    \text{ $C$ es cerrado fuerte $\iff$ $C$ es cerrado débil } 
+\end{equation*}
+\end{thm}
+
+\begin{proof}:\\
+\begin{itemize}
+    \item[($\Leftarrow$)] Fácil pues $\topdebilE \subseteq \topDeLaNorma$
+    \item[($\Rightarrow$)] Sea $C$ cerrado fuerte y convexo.
+    
+    Sea $x_0 \in \compl{E} C$. como $x \not \in C$, podemos separar estrictamente $\conj{x_0}$ de $C$. Luego $\exists f \in E', \ \exists \alpha \in \rr$ tal que
+    \begin{equation*}
+        \prodint[]{f}{x} < \alpha < \prodint[]{f}{x_0} \quad \forall x \in C
+    \end{equation*}
+    
+    Entonces 
+    \begin{eqnarray}
+        V &=& \conj{
+        x \in E | \prodint[]{f}{x} > \alpha
+        } \\
+        &=& f^{-1}(]\alpha,\, \infty[)
+    \end{eqnarray}
+    
+    Que es abierto débil, resulta ser una vecindad de $x_0$, totalmente contenida en $\compl{E} C$. Luego, $\compl{E} C \subseteq \adh(\compl{} C) $, y entonces $\compl{E}C$ es abierto débil, y $C$ es cerrado débil.
+\end{itemize}
+\end{proof}
+
+\begin{thm}\label{teo:teo-2-}
+Sean $E$, $F$ espacios de Banach y $T:E\to F$ lineal continua para la topología fuerte. Entonces 
+\begin{equation}
+    \deffuncs{T}
+    {[E,\, \topdebilE ]}{[F,\, \topdebil{F}{F'}]}
+\end{equation}
+
+Es también continua (y lineal) para la topología fuerte.
+\end{thm}
+
+\begin{proof}
+\begin{equation*}
+    \deffuncs{\PHI_i}{X}{Y} \quad i \in I
+\end{equation*}
+\begin{equation*}
+    \deffuncs{\psi}{Z}{X} \text{ es continua} \iff \deffuncs{\PHI_i \circ \psi}{Z}{Y}\quad \forall i \in I
+\end{equation*}
+
+$Z = E$, $\deffuncs{\PHI_i = f}{F}{\rr}$, ie,
+
+$X = F$ $f \in F'$
+$Y = \rr$
+$\deffuncs{T}{[E,\, \topdebilE]}{[F,\, \topdebil{F}{F'}]}$ es continua $\iff$ $\deffunc{f \circ T}
+{[E,\, \topdebilE]}{\rr}
+{x}{\prodint[]{f}{Tx}}$ es continua.
+
+Pero la aplicación $x \in E \mapsto \prodint[]{f}{Tx}$ es continua para todo $f \in F'$, pues $f$ y $T$ lo son, o bien, pues
+\begin{eqnarray}
+\abs{\prodint[]{f}{Tx}} &\leq& \norm[F']{f} \norm[F]{Tx} \\
+&\leq& \norm[F']{f} \norm[]{T} \norm[E]{x}
+\end{eqnarray}
+Recíprocamente, supongamos que $\deffuncs{T}{[E,\, \topdebilE]}{[F,\, \topdebil{F}{F'}]}$ es continua y lineal. Luego, $\gr(T)$ es cerrado en $E \times F$ para la topología débil $\topdebil{E \times F}{E' \times F'}$. Pero, los cerrados débiles son cerrados del tipo fuertes, y entonces $\fr(T)$ es cerrado fuerte en $E \times F$ dotado de la norma $\norm[E]{\bullet} + \norm[F]{\bullet}$, 
+y entonces, por el teo. del grafo cerrado, $T$ es continuo fuerte.
+\end{proof}
+
+\section{Espacio bidual}
+$E$ espacio de Banach $\implies$ $E'$ es Banach $\implies$ $(E')' = E''$ es Banach,
+dotado de la norma 
+\begin{equation*}
+    \norm[E']{\xi} = \sup_{f \inE', f \not = 0} \frac{\abs{\prodint[]{\xi}{f}}}{\norm[E']{f}}
+\end{equation*}
+
+\textbf{Afirmación}: $E$ se puede identificar con un sev de $E''$ a través de una funcional, denominada la \textbf{funcional de evaluación}, definida por:
+\begin{equation*}
+    \deffunc{J}
+    {E}{E''}
+    {x}{Jc}
+\end{equation*}
+tal que
+\begin{equation*}
+    \deffunc{Jx}
+    {E'}{E}
+    {\prodint[]{Jx}{f}}{\prodint[]{f}{x}}
+\end{equation*}
+
+$J$ es evidentemente inyectiva, pues si $Jx = 0$, entonces $\prodint[]{f}{x} = 0\ \forall f \in E'$,
+y entonces $x=0$. Esto permite identificar $E$ con $J(E)$, sev de $E''$.
+
+Además, $J$ es una isometría, pues
+\begin{eqnarray*}
+    \norm[E'']{Jx} 
+    &=& \sup_{f \in E',\, f \not = 0} \frac{\abs{\prodint[]{Jx}{f}}}{\norm[E']{f}}\\
+    &=& \sup_{f \in E',\, f \not = 0} \frac{\abs{\prodint[]{f}{x}}}{\norm[E']{f}} = \norm[E]{x}
+\end{eqnarray*}
+
+Así, $J(E)$ es cerrado fuerte en $E''$, y entonces $E$ se identifica con un sev cerrado de $E''$.
+
+\begin{defn}
+$E$  se dice \textbf{reflexivo} si $J(E) = E''$.
+\end{defn}

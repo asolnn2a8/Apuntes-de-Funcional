@@ -1,0 +1,351 @@
+%!TEX root = ../main.tex
+
+%%%%% NÚMERO DE LA CÁTEDRA Y FECHA
+\renewcommand{\catnum}{\theNPclase \ No Presencial}% 6NP %numero de catedra
+\renewcommand{\fecha}{01 de junio de 2020}
+%%%%%%%%%%%%%%%%%%
+%Encabezado
+\input{utils/encabezado}
+%Fin encabezado
+
+Módulo \#3
+
+\begin{thm}[Banach-Alaogh-Bourboki]
+$E$ espacio de Banach. Entonces
+\begin{equation*}
+    \overline{B}_{E'}(0, 1)\ \text{en $E'$ es compacta para la topología débil*}
+\end{equation*}
+\end{thm}
+
+Este teorema es importante porque nos permite hallar compactos en el dual (recordando que la compacidad nos permite asegurar las existencias).
+
+\begin{proof}
+La idea consiste en identificar el espacio $[E',\, \topdebilE]$ con un sev de $[S = \rr^{E},\, \topprod]$ donde $\topprod}$ 
+es la top. producto, ie, es la topología menos fina en $S$ que hace continuas las proyecciones
+\begin{equation*}
+    \omega = (\omega_{y})_{y\in E} \overset{\phi_{x}}{\longmapsto} \omega_x, \quad \forall x \in E
+\end{equation*}
+
+Esta identificación lo haremos a través de la función
+\begin{equation*}
+    \deffunc{\Phi}
+    { [E',\, \topdebilestrE] }{ [S,\, \topprod] }
+    {f \in E'}{\big( \prodint[]{f}{y} \big)_{y \in E} \in S }
+\end{equation*}
+
+Probemos que $\Phi$ es continua y que $\Phi$ es biyectiva de $E'$ en $\Phi(E')$ y que $\Phi^{-1}$ es también continua.
+
+Con esto, tendríamos que $\Phi$ se identifica homeomórficamente con $\Phi(E')$. 
+
+Admitiendo esto, probemos que $\Phi(\overline{B}_{E'} (0; 1)) = K$ es compacto en $[S,\, \topprod]$. En efecto,
+\begin{eqnarray}
+    K &=& \conj{
+    \omega = (\omega_x)_{x\in E} \big|
+    \abs{\omega_{x}} \leq \norm[E']{x},\ \omega_{x+y} = \omega_{x} + \omega_{y},\ \omega_{\lambda x} = \lambda \omega_{x},\, \forall x,y \in E,\ \forall \lambda \in \rr
+    } \\
+    &=& K_1 \cap K_2
+\end{eqnarray}
+con 
+\begin{equation}
+    K_1 = \conj{
+    \omega\in S \big|
+    \abs{\omega_{x}} \leq \norm[E']{x} \forall x \in E
+    }
+\end{equation}
+y
+\begin{equation}
+    K_2 = \conj{
+    \omega \in S \big|
+    \omega_{x+y} = \omega_{x} + \omega_{y},\ \omega_{\lambda x} = \lambda \omega_{x},\, \forall x,y \in E,\ \forall \lambda \in \rr
+    }
+\end{equation}
+
+Pero,
+\begin{equation}
+    K_1 = \prod_{x \in E} \big[ -\norm[]{x},\, \norm[]{x} \big]
+\end{equation}
+
+Y entonces $K_1$ es un producto de compactos, y así, $K_1$ es compacto.
+
+Por otro lado, $K_2$ es cerrado, pues las funciones $\omega \mapsto \omega_{x+y} - \omega_x - \omega_y$ y $\omega \mapsto \omega_{\lambdax} - \lambda \omega_x $ son continuas $\forall x,\, y \in E$ $\forall \lambda \i $. Luego, los conjuntos
+\begin{eqnarray}
+    A_{x,y} &=& \conj{
+    \omega \in S| \omega_{x+y} - \omega_x - \omega_y
+    }\\
+    B_{\lambda x} &=& \conj{
+    \omega \in S | \omega_{\lambda x} - \lambda \omega_x
+    }
+\end{eqnarray}
+
+Son cerrados en tanto que preimágenes del singletón $\conj{0}$
+
+(Continuación del módulo \#3)
+
+\begin{equation*}
+    \deffunc{\Phi}
+    { [E',\, \topdebilestrE] }{ [S,\, \topprod] }
+    {f \in E'}{\big( \prodint[]{f}{y} \big)_{y \in E} \in S }
+\end{equation*}
+
+\begin{itemize}
+    \item Demostremos que $\Phi$ es inyectiva. Esto es pues si $\Phi(f) = 0 \implies f = 0$.
+    
+    Así, $\Phi$ es una biyección de $E'$ en $\Phi(E')$.
+    
+    \item $\Phi$ es continua. Para probarlo, usaremos la proposición \ref{prop:prop-1-top-debil} de los preliminares, que nos permite afirmar que $\Phi$ es continua $\iff$ $p_{x}\circ \Phi  $ es continua $\forall x \in E$, y donde \begin{equation*}
+        \deffunc{p_x}
+        {S}{\rr}
+        {(\omega_{y})_{y\in E}}{\omega_{x}}
+    \end{equation*}
+    
+    Pero, en nuestro caso,
+    \begin{equation*}
+        \deffunc{p_{x} \circ \Phi}
+        {[E',\, \topdebilestrE]}{\rr}
+        {f}{\prodint[]{f}{x} = \prodint[]{Jx}{f}}
+    \end{equation*}
+    
+    que es continua por definición de la topología débil* $\topdebilestrE$.
+    
+    \item 
+    \begin{equation*}
+        \deffunc{\Phi\inv}
+        {[\Phi(E'),\, \topprod]}{[E',\, \topdebilestrE]}
+        {\omega = (\prodint[]{f}{y})_{y \in E}}{f}
+    \end{equation*}
+    % $\deffuncs{\Phi\inv}{[\Phi(E'),\, \topprod]}{[E',\, \topdebilestrE]}$
+    
+    % $\omega = (\omega_y)_{y \in E} = (\prodint[]{f}{y})_{y \in E} \mapsto f$
+    
+    Usando la misma proposición, ahora $\Phi\inv$ es continua $\iff$ $Jx \circ \Phi\inv$ es continua, $\forall x \in E$
+    
+    Pero en nuestro caso, $\forall x \in E$, 
+    \begin{equation*}
+        \deffunc{J_x \circ \Phi\inv}
+        {[\Phi(E'),\, \topprod]}{\rr}
+        {(\prodint[]{f}{y})_{y\in E}}{\prodint[]{Jx}{f}=\prodint[]{f}{x} = p_x \big( (\prodint[]{f}{y})_{y\in E} \big)}
+    \end{equation*}
+    
+    ie, $J_x\circ \Phi\inv = p_x$, que es continua por definición de la topología producto.
+\end{itemize}
+
+\end{proof}
+
+Módulo \#4
+
+\section{Espacios reflexivos}
+
+\begin{defn}[Espacio reflexivo]
+$E$ esp. de Banach. $E$ se dice reflexivo si $J(E) = E''$. ie, cuando $J$ es sobreyectiva
+\end{defn}
+
+\begin{ex}:\\
+\begin{ienumerate}
+    \item $\dim E < + \infty \implies J$ es sobre, pues es inyectiva.
+    \item $E = \ell_p$ con $1 < p < \infty$.
+    \item $E = \ell_1$ o $E = \ell_\infty$, no son reflexivos.
+\end{ienumerate}
+\end{ex}
+
+\begin{note}:\\
+\begin{ienumerate}
+    \item Si $E$ es reflexivo, entonces $\topdebil{E'}{E''}$ (topología débil en $E'$) y $\topdebilestrE$ (topología débil* en $E'$) coinciden.
+    
+    \item Supongamos que $E$ es reflexivo, y entonces, salvo identificación, $E = (E')'$ (ie, es un dual), y le podemos aplicar (en principio) el teorema de B-A-B, ¿Cómo hacerlo, y qué conclusión sacamos? El problema es que $E$ no es un dual, si no que \textbf{se identifica} por un dual, así que hay que trabajarlo.
+    
+\end{ienumerate}
+
+\end{note}
+
+Para responder, consideremos el esquema siguiente:
+\begin{equation*}
+    \deffuncs{J}
+    {E}{[E'',\, \topdebil{E''}{E'}]}
+\end{equation*}
+
+Por B-A-B, $\overline{B}_{E''}(0,1)$ es compacta en $E''$ para $\topdebil{E''}{E'}$, queremos entonces saber con qué topología en $E$, $J\inv$ es continua, para concluir compacidad de $\overline{B}_{E}(0,1) = J\inv (\overline{B}_{E''}(0,1))$ (tenemos continuidad para $J\inv$)
+
+Muy fácil, miremos el esquema siguientea la luz de la prop. \ref{prop:prop-1-top-debil} de los preliminares:
+\begin{equation*}
+    \deffuncs{J\inv}
+    {[E'',\, \topdebil{E''}{E'}]}{[E,\, \topdebilE]}
+\end{equation*}
+
+Fijamos $f \in E'$ y componemos con $f$. Luego decimos que $J\inv$ es continua $\iff$ $f \circ J\inv$ es continua $\forall f \in E'$. 
+
+Pero,
+\begin{equation*}
+    \deffunc{f \circ J \inv}
+    {[E'',\, \topdebil{E''}{E'}]}{\rr}
+    {\xi = Jx}{x \mapsto \prodint[]{f}{x} = \prodint[]{Jx}{f}
+    }
+\end{equation*}
+
+Que es continua para cada $f \in E'$, pues
+\begin{equation*}
+    \abs{
+    \prodint[]{Jx}{f}
+    } 
+    \leq \norm[]{f} \norm[]{Jx} = C \norm[]{\xi}
+\end{equation*}
+
+Concluimos que $J\inv$ es continua al dotar $E$ de la topología débil, $\topdebilE$. Así, B-A-B, nos dice que $\overline{B}_E (0,1) = J\inv (\overline{B}_{E''} (0,1))$ es compacta para $\topdebilE$.
+
+Esto presenta una implicación en:
+\begin{thm}
+$E$ Banach.
+\begin{equation*}
+    E \text{ reflexivo} \iff \overline{B}_E(0, 1) \text{ es débilmenente compacta}
+\end{equation*}
+\end{thm}
+
+\begin{proof}
+La implicancia ($\Leftarrow$) es técnicamente tediosa (ver libro Brezis)
+\end{proof}
+
+\begin{prop}
+Sea $E$ Banach reflexivo y $M$ sev de $E$ cerrado. Luego $M$ dotado de la topología inducida por $E$, es reflexivo.
+\end{prop}
+
+\begin{proof}
+Más adelante
+\end{proof}
+
+\begin{cor}\label{cor:corolario-1}
+$E$ Banach
+\begin{equation*}
+    E \text{ reflexivo} \iff E' \text{ reflexivo}
+\end{equation*}
+\end{cor}
+
+\begin{cor}\label{cor:corolario-2}
+$E$ Banach reflexivo y $C$ subconjunto acotado, cerrado (fuerte) y convexo de $E$. Luego, $C$ es compacto débil de $E$.
+\end{cor}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%!TEX root = ../main.tex
+
+%%%%% NÚMERO DE LA CÁTEDRA Y FECHA
+\renewcommand{\catnum}{\theNPclase \ No Presencial}% 6NP %numero de catedra
+\renewcommand{\fecha}{01 de junio de 2020}
+%%%%%%%%%%%%%%%%%%
+%Encabezado
+\input{utils/encabezado}
+%Fin encabezado
+
+¿Cómo aplicamos el Teo. de BAB a $E$?
+
+Recordemos el siguiente teorema:
+\begin{thm}\label{teo1:Erefl-Edual-refl}
+$E$ Banach
+\begin{equation*}
+    E \text{ reflexivo} \iff \overline{B}_E(0, 1) \text{ es débilmenente compacta}
+\end{equation*}
+\end{thm}
+
+\begin{prop}\label{prop:prop1}
+Sea $E$ Banach reflexivo y $M$ sev cerrado fuerte de $E$. Entonces $M$, dotado de la topología inducida por $E$ es reflexivo.
+\end{prop}
+
+\begin{cor}\label{coro:corolario1-E-refl-Edual-refl}
+$E$ Banach. $E$ es reflexivo $\iff$ $E'$ es reflexivo.
+\end{cor}
+
+\begin{cor}\label{coro:corolario2}
+Sea $E$ Banach reflexivo y $K \subseteq E$ cerrado, acotado y convexo. Entonces $K$ es compacto débil en $E$.
+\end{cor}
+
+\begin{proof}[Demostración del Corolario \ref{coro:corolario1-E-refl-Edual-refl}]
+(->) pdq $\overline{B}_{E'}(0, 1)$ es compacta para $\topdebil{E'}{E''}$
+
+Pero sabemos que $\overline{B}_{E'}(0, 1)$ es compacta para $\topdebil{E'}{E = J(E)}$, esto es, para la topología débil* (BAB). Ahora bien, $E$ es reflexivo, entonces $J(E) = E''$, y entonces $\topdebil{E'}{E} = \topdebil{E'}{E''}$ (top. débil y débil* en $E'$, coinciden)
+
+Así, $\overline{B}_{E'}(0, 1)$ es también débil compacta.
+
+(<-) Vamos a suponer que $E'$ es reflexivo $\implies$ $E''$ es reflexivo $ \overset{\text{prop \ref{prop:prop1}}}{\implies} $ $J(E)$ (que es sev cerrado de $E''$) es reflexivo
+
+Ahora bien, $[E,\, \norm[E]{\bullet}]$ es isométrico a $[J(E),\, \norm[E'']{\bullet}]$ y entonces (ejercicio: probar que si dos espacios de Banach son isométricos, entonces uno es reflexivo ssi el otro lo es) $E$ es reflexivo.
+
+Otra forma de ver que $E$ es reflexivo es notar que 
+\begin{equation}
+    J\inv (\underbrace{\overline{B}_{E''}(0, 1)}_{\text{compacta débil}}) \supseteq \underbrace{\overline{B}_{E}(0, 1)}_{\text{cerrada débil}}
+\end{equation}
+
+$J\inv$ continua para $\topdebilE$. y entonces $J\inv ({\overline{B}_{E''}(0, 1)})$ es compacto débil en $E$, y así, ${\overline{B}_{E}(0, 1)}$ es compacto débil.
+
+\end{proof}
+
+\begin{proof}[Demostración del Corolario \ref{coro:corolario2}]
+$K$ cerrado. acotado, convexo de $E$, reflexivo.
+
+$K$ es cerrado débil por ser convexo y cerrado fuerte. Como $K$ es acotado, $\exists R > 0$, $K\subseteq \overline{B}_{E}(0, R)$, pero, $E$ reflexivo $\implies $ $\bolacerradaf[E]{0}{R}$ es compacta débil (por Teo. \ref{teo1:Erefl-Edual-refl}), y entonces $K$ es un cerrado débil dentro de un compacto débil, y así es compacto débil.
+\end{proof}
+
+\begin{proof}[Demostración de la Prop. \ref{prop:prop1}]
+En $M$ podemos poner dos topologías ``débiles''; 
+\begin{ienumerate}
+    \item $\topdebil{M}{M'}$
+    \item La topología inducida por $\topdebilE$, ie, las trazas sobre $M$ de la topología de los abiertos débiles de $E$.
+\end{ienumerate}
+
+\begin{exer}
+Pruebe que \iitem[i] y \iitem[ii] coinciden, jugando con restricciones y extensiones de formas lineales sobre $E$ y  $M$.
+\end{exer}
+
+Con esto, como $E$ es reflexivo, $\bolacerradaunitariaf[E]$ es compacta para la topología débil (Teo. \ref{teo1:Erefl-Edual-refl}). Ahora bien, 
+\begin{equation}
+    \bolacerradaunitariaf[M] = \bolacerradaunitariaf[E] \cap M
+\end{equation}
+
+Donde $M$ es cerrado débil en $E$.
+Luego, $\bolacerradaunitariaf[M]$ es compacto para la topología $\topdebilestrE$ y como esta coincide con $\topdebil{M}{M'}$, al tomar trazas, también es compacto para $\topdebil{M}{M'}$. Así, $M$ es reflexivo.
+\end{proof}
+
+Una pregunta natural es, si $(x_n)_n$ es sucesión acotada en un espacio $E$ \textit{reflexivo}, ¿es posible extraer subsucesión $(x_{n_k})_k$ convergente débil?
+
+La sucesión $x_n$, por ser acotada, la podemos sumergir en una bola $\bolacerradaf[E]{0}{R}$, para algún $R$, que sabemos es compacta débil, pues $E$ es reflexivo.
+
+Ahora bien, esto no es suficiente para poder extraer $(x_{n_k})_k$, convergente débil, pues $[E,\, \topdebilE]$ no es metrizable.
+
+Sin embargo, aún hay esperanza de que la respuesta sea positiva, pues, bastaría con que el espacio topológico compacto $[\bolacerradaf[E]{0}{R},\, \topdebilE \cap \bolacerradaf[E]{0}{R}]$  fuese metrizable para poder usar Bolzano-Weiertrass y que la respuesta fuese sí.
+
+\section{Espacios Separables}
+
+\begin{defn}
+$E$ Banach. $E$ se dice \textit{separable} ssi $\exists$ subconjunto de $E$ numerable denso.
+\end{defn}
+
+Recordar que no hay que confundir la definición de \textit{separable} con \textit{separado} (esto último, significa que sea Hausdorff).
+
+\begin{thm} \label{teo1:Esp-Sep}
+Sea $E$ Banach
+\begin{ienumerate}
+    \item $E$ es separable $\iff$ $\bolacerradaunitariaf[E']$ para $\topdebilestrE$ (débil*) es metrizable.
+    \item $E'$ es separable $\iff$ $\bolacerradaunitariaf[E]$ para $\topdebilE$ es metrizable.
+\end{ienumerate}
+\end{thm}
+
+Es decir, para saber que un espacio es separable, hay que mirar la bola unitaria primal.
+
+\begin{thm}\label{teo2:Esp-Sep}
+$E$ es Banach. 
+\begin{equation}
+    \text{$E$ es separable y reflexivo} \iff \text{E' es separable y reflexivo}
+\end{equation}
+\end{thm}
+
+Hay que hacer notar el \textbf{``y''} entre medio, pues este teorema es válido solo para espacios reflexivos.
+
+Con estas herramientas, regresemos a la pregunta natural
