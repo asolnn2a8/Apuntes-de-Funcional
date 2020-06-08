@@ -19,12 +19,12 @@ $T$ se dice acotado si $\exists c \geq 0 :\ \norm[F]{Tx} \leq c \norm[E]{x}, \qu
 \end{defn}
 
 \begin{defn}
-Un operador  $T: \cd(T)  \subseteq E \to F$ se dice \textbf{cerrado} si $\gr T$ es cerrado en $E \times F$, donde $\gr T = \{ (x,\ Tx) | x \in \cd(T) \}$
+Un operador  $T: \cd(T)  \subseteq E \to F$ se dice \textbf{cerrado} si $\gr(T)$ es cerrado en $E \times F$, donde $\gr(T)= \{ (x,\ Tx) | x \in \cd(T) \}$
 \end{defn}
 
 \begin{note}: 
 \begin{enumerate}[(1)]
-    \item $T$ cerrado $\implies \ker T$  cerrado $$\ker T \times \{ 0 \} = \gr T \cap (E \times \{ 0 \})$$
+    \item $T$ cerrado $\implies \ker (T)$  cerrado $$\ker (T) \times \{ 0 \} = \gr (T) \cap (E \times \{ 0 \})$$
     
     \item$T$ cerrado $\iff (x_n) \subseteq \cd(T)$
 \end{enumerate}
@@ -58,11 +58,11 @@ $$ \abs{\prodint{ \tilde{g_y} }{x}} \leq c \norm[E]{x} \quad \forall x \in E$$
 Se define $$ T\adj y = \tilde{g_y} $$
 
 \begin{prop}
-$T: \cd(T) \subseteq E \to F,\ \adh T = E$ entonces $T\adj$ es cerrado
+$T: \cd(T) \subseteq E \to F,\ \adh (T) = E$ entonces $T\adj$ es cerrado
 \end{prop}
 
 \begin{proof}
-Sea $(y_n, T\adj y_n) \in \gr T\adj \subseteq F' \times E'$ tal que $y_n \to z $ en $F' \wedge T\adj y_n \to u$  en $E'$
+Sea $(y_n, T\adj y_n) \in \gr (T\adj) \subseteq F' \times E'$ tal que $y_n \to z $ en $F' \wedge T\adj y_n \to u$  en $E'$
 
 pdq $z \in \cd(T\adj) ,\ u = T\adj z $
 
@@ -88,14 +88,14 @@ En optimización, también se ocupa bastante los conceptos de dualidad.
 \begin{note}
 
 \begin{align*}
-\text{Sea } &(y,\ T\adj y = f) \in \gr T\adj \\
+\text{Sea } &(y,\ T\adj y = f) \in \gr (T\adj) \\
 &\iff \prodint[]{Tx}{y} = \prodint[]{x}{f} \ \forall x \in \cd(T) \\
 &\iff -\prodint[]{x}{f} + \prodint[]{Tx}{y} = 0 \ \forall x \in \cd(T) \\
 &\iff  \prodint[]{(x,\ Tx)}{(-f,\ y)}  = 0 \ \forall x \in \cd(T) \\
-&\iff  (-f,\ y) \in (\gr T)\ort  \ \forall x \in \cd(T) 
+&\iff  (-f,\ y) \in (\gr (T))\ort 
 \end{align*}
 
-$J(\gr T\adj) = (\gr T)\ort $, donde $J: (y,\ f) \in  F' \times E' \mapsto (-f,\ y) \in E' \times F'$
+$J(\gr (T\adj)) = (\gr (T))\ort $, donde $J: (y,\ f) \in  F' \times E' \mapsto (-f,\ y) \in E' \times F'$
 
 \end{note}
 
